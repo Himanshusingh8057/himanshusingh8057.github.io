@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video Editor Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
   color: white;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -24,53 +25,54 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: fadeIn 1s ease;
 }
 
-h1 {
-  font-size: 3.5rem;
-  font-weight: 900;
-  line-height: 1.2;
-}
+h1 { font-size: 3.5rem; font-weight: 900; }
+h2 { font-size: 2rem; font-weight: 700; margin-bottom: 30px; }
+p { color: #cfcfcf; }
 
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: #cfcfcf;
-}
-
-.highlight {
-  color: #ff4d4d;
-}
-
-.section {
-  padding: 80px 0;
-}
+.highlight { color: #ff4d4d; }
+.section { padding: 80px 0; }
 
 .card {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
-  padding: 25px;
+  padding: 20px;
   border-radius: 20px;
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
   border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 30px rgba(255,77,77,0.3);
 }
 
-.video {
+.video-thumb {
   width: 100%;
   border-radius: 12px;
+  transition: transform 0.4s ease;
 }
+
+.card:hover .video-thumb {
+  transform: scale(1.05);
+}
+
+.flex {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s forwards;
+}
+
+.flex.reverse { flex-direction: row-reverse; }
+
+.text-box { max-width: 500px; }
+.text-box h3 { font-size: 1.5rem; font-weight: 700; }
 
 .grid {
   display: grid;
@@ -91,8 +93,20 @@ p {
 }
 
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255,77,77,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255,77,77,0.5);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 </style>
@@ -103,103 +117,96 @@ p {
 
 <div class="hero">
 <h1>I Create <span class="highlight">Viral Videos</span><br>That Drive Real Growth</h1>
-<p>30M+ views across content • Helped grow channels from 0 → 120K</p>
-<a href="#work" class="button">View My Work</a>
+<p>30M+ views • Channel growth from 0 → 120K</p>
+<a href="#short" class="button">View My Work</a>
 </div>
 
+<!-- VIRAL PROOF -->
 <div class="section">
-<h2>🚀 Viral Content Strategy</h2>
-<div class="card">
-<p>
-High-performing videos are not built on editing alone. They are built on attention, retention, and storytelling.
-</p>
-<p>
-I create content optimized for virality using strong hooks, structured pacing, and audience psychology.
-</p>
-<p>
-Whether it's minimal editing or advanced visuals — the goal is always the same: keep viewers engaged till the end.
-</p>
+
+<div class="flex">
+<a href="https://youtube.com/shorts/YOUR_ID" target="_blank" class="card" style="flex:1">
+<img class="video-thumb" src="https://img.youtube.com/vi/YOUR_ID/maxresdefault.jpg">
+</a>
+<div class="text-box">
+<h3>30M Views</h3>
+<p><b>Minimal editing</b></p>
+<p>Optimized for virality & retention</p>
+<p>Strong hook + pacing</p>
 </div>
 </div>
 
-<div class="section" id="work">
+<div class="flex reverse">
+<a href="https://youtube.com/shorts/YOUR_ID2" target="_blank" class="card" style="flex:1">
+<img class="video-thumb" src="https://img.youtube.com/vi/YOUR_ID2/maxresdefault.jpg">
+</a>
+<div class="text-box">
+<h3>7M Views</h3>
+<p><b>High-retention editing</b></p>
+<p>Fast pacing + engagement</p>
+<p>Structured storytelling</p>
+</div>
+</div>
+
+</div>
+
+<!-- SHORT FORM -->
+<div class="section" id="short">
 <h2>🔥 Short Form Content</h2>
 <div class="grid">
 
-<div class="card">
-<video class="video" controls src="your-video-link.mp4"></video>
-<p>30M views • Strategy-driven, minimal editing</p>
+<a href="https://youtube.com/shorts/ID1" target="_blank" class="card">
+<img class="video-thumb" src="https://img.youtube.com/vi/ID1/maxresdefault.jpg">
+<p>1M+ views</p>
+</a>
+
+<a href="https://youtube.com/shorts/ID2" target="_blank" class="card">
+<img class="video-thumb" src="https://img.youtube.com/vi/ID2/maxresdefault.jpg">
+<p>High-retention</p>
+</a>
+
+<a href="https://youtube.com/shorts/ID3" target="_blank" class="card">
+<img class="video-thumb" src="https://img.youtube.com/vi/ID3/maxresdefault.jpg">
+<p>Hook optimized</p>
+</a>
+
+</div>
 </div>
 
-<div class="card">
-<video class="video" controls src="your-video-link2.mp4"></video>
-<p>7M views • High-retention editing</p>
+<!-- AI -->
+<div class="section">
+<h2>🤖 AI Video Projects</h2>
+<p>I create AI-powered videos combining storytelling, visuals, and editing to deliver high-impact content.</p>
+<div class="grid">
+
+<div class="card"><p>AI Video Sample</p></div>
+<div class="card"><p>AI Workflow</p></div>
+<div class="card"><p>AI Storytelling</p></div>
+
+</div>
 </div>
 
-<div class="card">
-<video class="video" controls src="your-video-link3.mp4"></video>
-<p>1M+ views • Hook optimized</p>
-</div>
-
-</div>
-</div>
-
+<!-- LONG FORM -->
 <div class="section">
 <h2>🎥 Long Form Content</h2>
 <div class="grid">
 
-<div class="card">
-<video class="video" controls src="your-video-link4.mp4"></video>
-<p>Long-form storytelling sample</p>
-</div>
+<a href="https://youtube.com/watch?v=LONG1" target="_blank" class="card">
+<img class="video-thumb" src="https://img.youtube.com/vi/LONG1/maxresdefault.jpg">
+<p>Story-driven</p>
+</a>
 
-<div class="card">
-<video class="video" controls src="your-video-link5.mp4"></video>
-<p>Retention-focused editing</p>
-</div>
+<a href="https://youtube.com/watch?v=LONG2" target="_blank" class="card">
+<img class="video-thumb" src="https://img.youtube.com/vi/LONG2/maxresdefault.jpg">
+<p>Retention focused</p>
+</a>
 
-</div>
-</div>
-
-<div class="section">
-<h2>🤖 AI Video Projects</h2>
-<div class="grid">
-
-<div class="card">
-<video class="video" controls src="your-video-link6.mp4"></video>
-<p>AI-generated storytelling video</p>
-</div>
-
-<div class="card">
-<video class="video" controls src="your-video-link7.mp4"></video>
-<p>AI + editing workflow</p>
-</div>
-
-</div>
-</div>
-
-<div class="section">
-<h2>📊 Proven Results</h2>
-<div class="card">
-<p>• 30M+ views on short-form content</p>
-<p>• Grew channel from 0 → 120K subscribers</p>
-<p>• Consistent high-performing content</p>
-</div>
-</div>
-
-<div class="section">
-<h2>🎯 Services</h2>
-<div class="card">
-<p>• Short-form viral content editing</p>
-<p>• Long-form YouTube editing</p>
-<p>• Scriptwriting & storytelling</p>
-<p>• AI video creation</p>
 </div>
 </div>
 
 <div class="section">
 <h2>📩 Work With Me</h2>
-<a href="mailto:your@email.com" class="button">Contact Me</a>
+<a href="https://wa.me/your-number" class="button">Contact Me</a>
 </div>
 
 </div>
