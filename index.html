@@ -27,23 +27,41 @@ body {
   z-index:0;
 }
 
-.container { width:90%; max-width:1200px; margin:auto; position:relative; z-index:2; }
+.container {
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
 
-/* HERO */
+/* HERO (FIXED) */
 .hero {
-  min-height:100vh;
+  padding-top:40px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  gap:30px;
+  gap:20px;
   animation:fadeIn 1s ease;
 }
 
-h1 { font-size:3.5rem; font-weight:900; }
-h2 { font-size:2rem; font-weight:700; margin-bottom:30px; }
-p { color:#cfcfcf; }
+h1 {
+  font-size:3.5rem;
+  font-weight:900;
+}
 
-.highlight { color:#ff4d4d; }
+h2 {
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:30px;
+}
+
+p {
+  color:#cfcfcf;
+}
+
+.highlight {
+  color:#ff4d4d;
+}
 
 /* SHOWREEL */
 .showreel {
@@ -51,8 +69,7 @@ p { color:#cfcfcf; }
   aspect-ratio:16/9;
   border-radius:18px;
   overflow:hidden;
-  margin-bottom:20px;
-  position:relative;
+  margin-top:10px;
 }
 
 .showreel img {
@@ -73,8 +90,13 @@ p { color:#cfcfcf; }
   transform:translateY(40px);
   transition:all 0.8s ease;
 }
-.section.show { opacity:1; transform:translateY(0); }
 
+.section.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* CARD */
 .card {
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(12px);
@@ -89,7 +111,7 @@ p { color:#cfcfcf; }
   box-shadow:0 0 40px rgba(255,77,77,0.4);
 }
 
-/* 9:16 THUMB */
+/* THUMB */
 .thumb-vertical {
   width:100%;
   aspect-ratio:9/16;
@@ -103,8 +125,11 @@ p { color:#cfcfcf; }
   transition:transform 0.4s ease;
 }
 
-.card:hover .video-thumb { transform:scale(1.05); }
+.card:hover .video-thumb {
+  transform:scale(1.05);
+}
 
+/* FLEX */
 .flex {
   display:flex;
   gap:30px;
@@ -112,18 +137,27 @@ p { color:#cfcfcf; }
   margin-bottom:60px;
 }
 
-.flex.reverse { flex-direction:row-reverse; }
+.flex.reverse {
+  flex-direction:row-reverse;
+}
 
-.text-box { max-width:500px; }
+.text-box {
+  max-width:500px;
+}
 
-.text-box h3 { font-size:1.5rem; font-weight:700; }
+.text-box h3 {
+  font-size:1.5rem;
+  font-weight:700;
+}
 
+/* GRID */
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:25px;
 }
 
+/* BUTTON */
 .button {
   display:inline-block;
   padding:14px 28px;
@@ -131,7 +165,7 @@ p { color:#cfcfcf; }
   color:white;
   border-radius:10px;
   text-decoration:none;
-  margin-top:20px;
+  margin-top:10px;
   font-weight:600;
   transition:0.3s;
 }
@@ -154,7 +188,10 @@ p { color:#cfcfcf; }
   transition:opacity 0.6s ease;
 }
 
-.loader.hidden { opacity:0; pointer-events:none; }
+.loader.hidden {
+  opacity:0;
+  pointer-events:none;
+}
 
 .loader span {
   font-size:1.5rem;
@@ -169,8 +206,8 @@ p { color:#cfcfcf; }
 }
 
 @keyframes fadeIn {
-  from{opacity:0}
-  to{opacity:1}
+  from {opacity:0;}
+  to {opacity:1;}
 }
 </style>
 </head>
@@ -185,14 +222,15 @@ p { color:#cfcfcf; }
 <!-- HERO -->
 <div class="hero">
 
-<!-- SHOWREEL -->
+<h1>I Create <span class="highlight">Viral Videos</span><br>That Drive Real Growth</h1>
+
+<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">
+100M+ Views Generated
+</p>
+
 <a href="https://your-showreel-link.com" target="_blank" class="showreel">
 <img src="your-showreel-thumbnail.jpg">
 </a>
-
-<h1>I Create <span class="highlight">Viral Videos</span><br>That Drive Real Growth</h1>
-
-<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">100M+ Views Generated</p>
 
 <a href="#short" class="button">View My Work</a>
 
@@ -271,7 +309,6 @@ p { color:#cfcfcf; }
 <img class="thumb-vertical" src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 </a>
 </div>
-
 </div>
 
 <div class="section">
