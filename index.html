@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video Editor Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-
 <style>
 body {
   margin:0;
@@ -27,76 +26,15 @@ body {
   z-index:0;
 }
 
-.container {
-  width:90%;
-  max-width:1200px;
-  margin:auto;
-  position:relative;
-  z-index:2;
-}
+.container { width:90%; max-width:1200px; margin:auto; position:relative; z-index:2; }
+.hero { height:100vh; display:flex; flex-direction:column; justify-content:center; animation:fadeIn 1s ease; }
+h1 { font-size:3.5rem; font-weight:900; }
+h2 { font-size:2rem; font-weight:700; margin-bottom:30px; }
+p { color:#cfcfcf; }
+.highlight { color:#ff4d4d; }
+.section { padding:80px 0; opacity:0; transform:translateY(40px); transition:all 0.8s ease; }
+.section.show { opacity:1; transform:translateY(0); }
 
-/* HERO (FIXED) */
-.hero {
-  padding-top:40px;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  animation:fadeIn 1s ease;
-}
-
-h1 {
-  font-size:3.5rem;
-  font-weight:900;
-}
-
-h2 {
-  font-size:2rem;
-  font-weight:700;
-  margin-bottom:30px;
-}
-
-p {
-  color:#cfcfcf;
-}
-
-.highlight {
-  color:#ff4d4d;
-}
-
-/* SHOWREEL */
-.showreel {
-  width:100%;
-  aspect-ratio:16/9;
-  border-radius:18px;
-  overflow:hidden;
-  margin-top:10px;
-}
-
-.showreel img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:0.4s;
-}
-
-.showreel:hover img {
-  transform:scale(1.03);
-}
-
-/* SECTIONS */
-.section {
-  padding:80px 0;
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-
-.section.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* CARD */
 .card {
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(12px);
@@ -111,7 +49,7 @@ p {
   box-shadow:0 0 40px rgba(255,77,77,0.4);
 }
 
-/* THUMB */
+/* 9:16 THUMB */
 .thumb-vertical {
   width:100%;
   aspect-ratio:9/16;
@@ -119,45 +57,16 @@ p {
   border-radius:12px;
 }
 
-.video-thumb {
-  width:100%;
-  border-radius:12px;
-  transition:transform 0.4s ease;
-}
+.video-thumb { width:100%; border-radius:12px; transition:transform 0.4s ease; }
+.card:hover .video-thumb { transform:scale(1.05); }
 
-.card:hover .video-thumb {
-  transform:scale(1.05);
-}
+.flex { display:flex; gap:30px; align-items:center; margin-bottom:60px; }
+.flex.reverse { flex-direction:row-reverse; }
+.text-box { max-width:500px; }
+.text-box h3 { font-size:1.5rem; font-weight:700; }
 
-/* FLEX */
-.flex {
-  display:flex;
-  gap:30px;
-  align-items:center;
-  margin-bottom:60px;
-}
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; }
 
-.flex.reverse {
-  flex-direction:row-reverse;
-}
-
-.text-box {
-  max-width:500px;
-}
-
-.text-box h3 {
-  font-size:1.5rem;
-  font-weight:700;
-}
-
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-/* BUTTON */
 .button {
   display:inline-block;
   padding:14px 28px;
@@ -165,15 +74,11 @@ p {
   color:white;
   border-radius:10px;
   text-decoration:none;
-  margin-top:10px;
+  margin-top:20px;
   font-weight:600;
   transition:0.3s;
 }
-
-.button:hover {
-  transform:translateY(-3px);
-  box-shadow:0 8px 25px rgba(255,77,77,0.5);
-}
+.button:hover { transform:translateY(-3px); box-shadow:0 8px 25px rgba(255,77,77,0.5); }
 
 /* LOADER */
 .loader {
@@ -187,11 +92,7 @@ p {
   z-index:9999;
   transition:opacity 0.6s ease;
 }
-
-.loader.hidden {
-  opacity:0;
-  pointer-events:none;
-}
+.loader.hidden { opacity:0; pointer-events:none; }
 
 .loader span {
   font-size:1.5rem;
@@ -205,13 +106,10 @@ p {
   100% { opacity:0.3; }
 }
 
-@keyframes fadeIn {
-  from {opacity:0;}
-  to {opacity:1;}
-}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
 </style>
 </head>
-
 <body>
 
 <div class="loader"><span>Loading Portfolio...</span></div>
@@ -219,31 +117,18 @@ p {
 
 <div class="container">
 
-<!-- HERO -->
 <div class="hero">
-
 <h1>I Create <span class="highlight">Viral Videos</span><br>That Drive Real Growth</h1>
-
-<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">
-100M+ Views Generated
-</p>
-
-<a href="https://your-showreel-link.com" target="_blank" class="showreel">
-<img src="your-showreel-thumbnail.jpg">
-</a>
-
+<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">100M+ Views Generated</p>
 <a href="#short" class="button">View My Work</a>
-
 </div>
 
 <!-- VIRAL PROOF -->
 <div class="section">
-
 <div class="flex">
 <a href="https://youtube.com/shorts/7dvHy80BDGw" target="_blank" class="card" style="flex:1">
 <img class="video-thumb" src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
 </a>
-
 <div class="text-box">
 <h3>9.5M Views</h3>
 <p><b>Minimal editing</b></p>
@@ -255,20 +140,17 @@ p {
 <a href="https://youtube.com/shorts/B8eMhzRh2TQ" target="_blank" class="card" style="flex:1">
 <img class="video-thumb" src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
 </a>
-
 <div class="text-box">
 <h3>8.2M Views</h3>
 <p><b>High-retention editing</b></p>
 <p>Fast pacing + engagement</p>
 </div>
 </div>
-
 </div>
 
 <!-- SHORT FORM -->
 <div class="section" id="short">
 <h2>🔥 Short Form Content</h2>
-
 <div class="grid">
 <a href="https://youtube.com/shorts/GEts_t9zPnQ" target="_blank" class="card">
 <img class="thumb-vertical" src="https://img.youtube.com/vi/GEts_t9zPnQ/maxresdefault.jpg">
@@ -295,7 +177,6 @@ p {
 <!-- AI -->
 <div class="section">
 <h2>🤖 AI Video Projects</h2>
-
 <div class="grid">
 <a href="https://youtube.com/shorts/Jg7gRkAvgrQ" target="_blank" class="card">
 <img class="thumb-vertical" src="https://img.youtube.com/vi/Jg7gRkAvgrQ/maxresdefault.jpg">
@@ -324,12 +205,14 @@ p {
 </div>
 
 <script>
+// CURSOR GLOW
 const glow = document.getElementById('cursorGlow');
 document.addEventListener('mousemove', e => {
   glow.style.left = e.clientX + 'px';
   glow.style.top = e.clientY + 'px';
 });
 
+// SCROLL ANIMATION
 const sections = document.querySelectorAll('.section');
 window.addEventListener('scroll', () => {
   sections.forEach(sec => {
@@ -340,6 +223,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// LOADER
 window.addEventListener('load', () => {
   document.querySelector('.loader').classList.add('hidden');
 });
