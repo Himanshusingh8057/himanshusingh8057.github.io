@@ -3,300 +3,307 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Robin | Video Editor Portfolio</title>
+<title>Video Editor Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#050505;
-color:white;
-overflow-x:hidden;
-position:relative;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#0a0a0a;
+  color:white;
+  overflow-x:hidden;
+  position:relative;
 }
 
-/* NOISE OVERLAY */
-
+/* GREEN OVERLAY */
 body::before{
-content:"";
-position:fixed;
-inset:0;
-background-image:url("https://grainy-gradients.vercel.app/noise.svg");
-opacity:0.06;
-pointer-events:none;
-z-index:999;
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top right, rgba(0,255,140,0.08), transparent 30%),
+  radial-gradient(circle at bottom left, rgba(0,255,140,0.05), transparent 35%);
+  pointer-events:none;
+  z-index:0;
 }
 
-/* GREEN GLOW */
-
+/* NOISE TEXTURE */
 body::after{
-content:"";
-position:fixed;
-width:700px;
-height:700px;
-background:radial-gradient(circle, rgba(0,255,120,0.08), transparent 70%);
-top:-200px;
-right:-200px;
-pointer-events:none;
-z-index:0;
+  content:'';
+  position:fixed;
+  inset:0;
+  opacity:0.03;
+  background-image:url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  pointer-events:none;
+  z-index:0;
 }
 
 /* CURSOR GLOW */
-
 .cursor-glow{
-position:fixed;
-width:220px;
-height:220px;
-background:radial-gradient(circle, rgba(0,255,140,0.14), transparent 70%);
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:0;
-mix-blend-mode:screen;
+  position:fixed;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(0,255,140,0.12), transparent 70%);
+  pointer-events:none;
+  transform:translate(-50%, -50%);
+  z-index:0;
+  filter:blur(10px);
 }
 
-/* CONTAINER */
-
 .container{
-width:90%;
-max-width:1200px;
-margin:auto;
-position:relative;
-z-index:2;
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  position:relative;
+  z-index:2;
 }
 
 /* HERO */
-
 .hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-padding:100px 0 60px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  animation:fadeIn 1s ease;
 }
 
-.hero h1{
-font-size:4.3rem;
-line-height:1;
-font-weight:900;
-max-width:900px;
-letter-spacing:-2px;
-margin-bottom:20px;
+h1{
+  font-size:4rem;
+  font-weight:900;
+  line-height:1.1;
+  letter-spacing:-2px;
+  margin-bottom:15px;
+}
+
+h2{
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:30px;
+}
+
+p{
+  color:#bdbdbd;
+  line-height:1.7;
 }
 
 .highlight{
-color:#00ff99;
-}
-
-.hero p{
-font-size:1.1rem;
-color:#bdbdbd;
-max-width:700px;
-line-height:1.7;
-margin-bottom:35px;
-}
-
-/* BUTTON */
-
-.button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-width:max-content;
-padding:15px 34px;
-border-radius:14px;
-text-decoration:none;
-font-weight:600;
-background:linear-gradient(135deg,#00ff99,#00cc77);
-color:black;
-transition:0.35s;
-box-shadow:0 10px 40px rgba(0,255,140,0.18);
-}
-
-.button:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 50px rgba(0,255,140,0.28);
-}
-
-/* SHOWREEL */
-
-.showreel-section{
-margin-top:60px;
-}
-
-.showreel-box{
-position:relative;
-overflow:hidden;
-border-radius:28px;
-border:1px solid rgba(255,255,255,0.08);
-background:#111;
-box-shadow:
-0 0 80px rgba(0,255,120,0.08),
-0 30px 80px rgba(0,0,0,0.6);
-}
-
-.showreel-box iframe{
-width:100%;
-aspect-ratio:16/9;
-border:none;
-display:block;
+  color:#00ff99;
+  text-shadow:0 0 20px rgba(0,255,153,0.35);
 }
 
 /* SECTION */
-
 .section{
-padding:100px 0;
-opacity:0;
-transform:translateY(50px);
-transition:1s;
+  padding:100px 0;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
 }
 
 .section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-h2{
-font-size:2.2rem;
-margin-bottom:35px;
-font-weight:800;
-letter-spacing:-1px;
-}
-
-/* FLEX */
-
-.flex{
-display:flex;
-gap:40px;
-align-items:center;
-margin-bottom:70px;
-}
-
-.flex.reverse{
-flex-direction:row-reverse;
-}
-
-.text-box{
-max-width:500px;
-}
-
-.text-box h3{
-font-size:2rem;
-margin-bottom:15px;
-}
-
-.text-box p{
-color:#bdbdbd;
-line-height:1.7;
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* CARD */
-
 .card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-padding:14px;
-border-radius:24px;
-backdrop-filter:blur(12px);
-overflow:hidden;
-transition:0.45s;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(14px);
+  padding:15px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:all 0.45s ease;
+  overflow:hidden;
+  position:relative;
+  text-decoration:none;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+  135deg,
+  rgba(255,255,255,0.04),
+  transparent 40%
+  );
+  pointer-events:none;
 }
 
 .card:hover{
-transform:translateY(-10px);
-border-color:rgba(0,255,140,0.25);
-box-shadow:
-0 0 50px rgba(0,255,140,0.08),
-0 20px 60px rgba(0,0,0,0.5);
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:
+  0 0 40px rgba(0,255,140,0.12),
+  0 0 120px rgba(0,255,140,0.06);
+  border-color:rgba(0,255,140,0.18);
+}
+
+/* THUMB */
+.thumb-vertical{
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  border-radius:16px;
+  transition:all 0.5s ease;
 }
 
 .video-thumb{
-width:100%;
-border-radius:16px;
-transition:0.5s;
+  width:100%;
+  border-radius:16px;
+  transition:transform 0.5s ease;
 }
 
-.card:hover .video-thumb{
-transform:scale(1.04);
+.card:hover .video-thumb,
+.card:hover .thumb-vertical{
+  transform:scale(1.04);
 }
 
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
-
-.thumb-vertical{
-width:100%;
-aspect-ratio:9/16;
-object-fit:cover;
-border-radius:16px;
-}
-
-/* LOADER */
-
-.loader{
-position:fixed;
-inset:0;
-background:#050505;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:99999;
-transition:0.8s;
-}
-
-.loader.hidden{
-opacity:0;
-pointer-events:none;
-}
-
-.loader span{
-font-size:1.3rem;
-font-weight:700;
-animation:pulse 1.2s infinite;
-color:#00ff99;
-}
-
-@keyframes pulse{
-0%{opacity:0.3;}
-50%{opacity:1;}
-100%{opacity:0.3;}
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero h1{
-font-size:2.7rem;
-}
-
+/* FLEX */
 .flex{
-flex-direction:column;
+  display:flex;
+  gap:40px;
+  align-items:center;
+  margin-bottom:80px;
 }
 
 .flex.reverse{
-flex-direction:column;
+  flex-direction:row-reverse;
 }
 
-h2{
-font-size:1.8rem;
+.text-box{
+  max-width:500px;
 }
+
+.text-box h3{
+  font-size:2rem;
+  font-weight:800;
+  margin-bottom:10px;
+  color:white;
+}
+
+.text-box p:first-of-type{
+  color:#00ff99;
+  font-weight:600;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+/* BUTTON */
+.button{
+  display:inline-block;
+  padding:16px 34px;
+  background:linear-gradient(135deg,#00ff99,#00c26e);
+  color:black;
+  border-radius:14px;
+  text-decoration:none;
+  margin-top:20px;
+  font-weight:700;
+  transition:0.35s ease;
+  width:fit-content;
+}
+
+.button:hover{
+  transform:translateY(-4px);
+  box-shadow:
+  0 10px 30px rgba(0,255,140,0.35);
+}
+
+/* SHOWREEL */
+.showreel iframe{
+  width:100%;
+  height:650px;
+  border:none;
+  border-radius:24px;
+}
+
+/* LOADER */
+.loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#0a0a0a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:opacity 0.8s ease;
+}
+
+.loader.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+
+.loader span{
+  font-size:1.3rem;
+  font-weight:700;
+  color:#00ff99;
+  letter-spacing:2px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    opacity:0.3;
+    transform:scale(0.95);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1);
+  }
+  100%{
+    opacity:0.3;
+    transform:scale(0.95);
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  h1{
+    font-size:2.7rem;
+  }
+
+  .flex,
+  .flex.reverse{
+    flex-direction:column;
+  }
+
+  .hero{
+    min-height:90vh;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .showreel iframe{
+    height:260px;
+  }
 
 }
 
@@ -314,31 +321,34 @@ font-size:1.8rem;
 <div class="container">
 
 <!-- HERO -->
-
-<section class="hero">
+<div class="hero">
 
 <h1>
 I Create <span class="highlight">Viral Videos</span><br>
 That Drive Real Growth
 </h1>
 
-<p>
-100M+ Views Generated Through Strategic Storytelling,
-High-Retention Editing & Cinematic Visual Design.
+<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">
+100M+ Views Generated
 </p>
 
-<a href="#short" class="button">
+<a href="#short" class="button"
+onclick="document.getElementById('short').scrollIntoView({behavior:'smooth'}); return false;">
 View My Work
 </a>
 
+</div>
+
 <!-- SHOWREEL -->
+<div class="section showreel">
 
-<div class="showreel-section">
+<h2>🎬 Showreel</h2>
 
-<div class="showreel-box">
+<div class="card" style="padding:0; overflow:hidden;">
 
 <iframe
-src="https://www.youtube.com/embed/O7SdJC33-xs?autoplay=0&mute=0&rel=0&modestbranding=1&showinfo=0"
+src="https://www.youtube.com/embed/O7SdJC33-xs?rel=0&modestbranding=1"
+title="Portfolio Showreel"
 allowfullscreen>
 </iframe>
 
@@ -346,15 +356,15 @@ allowfullscreen>
 
 </div>
 
-</section>
-
 <!-- VIRAL PROOF -->
-
-<section class="section">
+<div class="section">
 
 <div class="flex">
 
-<a href="https://youtube.com/shorts/7dvHy80BDGw" target="_blank" class="card" style="flex:1">
+<a href="https://youtube.com/shorts/7dvHy80BDGw"
+target="_blank"
+class="card"
+style="flex:1">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
@@ -362,21 +372,19 @@ src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
 </a>
 
 <div class="text-box">
-
 <h3>9.5M Views</h3>
-
-<p>
-Minimal editing with strong storytelling structure,
-optimized for retention and virality.
-</p>
-
+<p><b>Minimal editing</b></p>
+<p>Optimized for virality & retention</p>
 </div>
 
 </div>
 
 <div class="flex reverse">
 
-<a href="https://youtube.com/shorts/B8eMhzRh2TQ" target="_blank" class="card" style="flex:1">
+<a href="https://youtube.com/shorts/B8eMhzRh2TQ"
+target="_blank"
+class="card"
+style="flex:1">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
@@ -384,23 +392,17 @@ src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
 </a>
 
 <div class="text-box">
-
 <h3>8.2M Views</h3>
-
-<p>
-Fast-paced editing built for engagement,
-watch-time and audience retention.
-</p>
-
+<p><b>High-retention editing</b></p>
+<p>Fast pacing + engagement</p>
 </div>
 
 </div>
 
-</section>
+</div>
 
 <!-- SHORT FORM -->
-
-<section class="section" id="short">
+<div class="section" id="short">
 
 <h2>🔥 Short Form Content</h2>
 
@@ -413,7 +415,7 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/GEts_t9zPnQ/maxresdefault.jpg">
 
-<p style="margin-top:14px;">2.9M views</p>
+<p>2.9M views</p>
 
 </a>
 
@@ -424,7 +426,7 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/9iFBNVnfzhw/maxresdefault.jpg">
 
-<p style="margin-top:14px;">2.5M views</p>
+<p>2.5M views</p>
 
 </a>
 
@@ -435,21 +437,20 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/NRt5g7j0yas/maxresdefault.jpg">
 
-<p style="margin-top:14px;">1.8M views</p>
+<p>1.8M views</p>
 
 </a>
 
 </div>
 
-</section>
+</div>
 
-<!-- AI PROJECTS -->
-
-<section class="section">
+<!-- AI -->
+<div class="section">
 
 <h2>🤖 AI Video Projects</h2>
 
-<p style="margin-bottom:30px;color:#bdbdbd;">
+<p style="margin-bottom:20px;">
 AI-enhanced storytelling & visual production
 </p>
 
@@ -462,7 +463,7 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/tN50BiEvgzg/maxresdefault.jpg">
 
-<p style="margin-top:14px;">AI-powered edit</p>
+<p>AI-powered edit</p>
 
 </a>
 
@@ -495,23 +496,19 @@ src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 
 </div>
 
-</section>
+</div>
 
 <!-- LONG FORM -->
-
-<section class="section">
+<div class="section">
 
 <h2>🎥 Long Form Content</h2>
 
-<p style="color:#bdbdbd;">
-Coming soon...
-</p>
+<p>Coming soon...</p>
 
-</section>
+</div>
 
 <!-- CONTACT -->
-
-<section class="section">
+<div class="section">
 
 <h2>📩 Work With Me</h2>
 
@@ -519,40 +516,40 @@ Coming soon...
 Contact Me
 </a>
 
-</section>
+</div>
 
 </div>
 
 <script>
 
-/* CURSOR */
+/* CURSOR GLOW */
 
 const glow = document.getElementById('cursorGlow');
 
 document.addEventListener('mousemove', e => {
 
-glow.style.left = e.clientX + 'px';
-glow.style.top = e.clientY + 'px';
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
 
 });
 
-/* SCROLL REVEAL */
+/* SCROLL ANIMATION */
 
 const sections = document.querySelectorAll('.section');
 
 window.addEventListener('scroll', () => {
 
-sections.forEach(sec => {
+  sections.forEach(sec => {
 
-const top = sec.getBoundingClientRect().top;
+    const top = sec.getBoundingClientRect().top;
 
-if(top < window.innerHeight - 100){
+    if(top < window.innerHeight - 100){
 
-sec.classList.add('show');
+      sec.classList.add('show');
 
-}
+    }
 
-});
+  });
 
 });
 
@@ -560,19 +557,7 @@ sec.classList.add('show');
 
 window.addEventListener('load', () => {
 
-document.querySelector('.loader').classList.add('hidden');
-
-});
-
-/* BUTTON SMOOTH SCROLL */
-
-document.querySelector('.button').addEventListener('click', function(e){
-
-e.preventDefault();
-
-document.querySelector('#short').scrollIntoView({
-behavior:'smooth'
-});
+  document.querySelector('.loader').classList.add('hidden');
 
 });
 
