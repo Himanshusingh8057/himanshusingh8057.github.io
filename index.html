@@ -146,7 +146,7 @@ p{
 
 /* SHOWREEL */
 .showreel{
-  margin-top:25px; /* reduced gap */
+  margin-top:25px;
   margin-bottom:80px;
 }
 
@@ -200,7 +200,7 @@ p{
   font-size:2rem;
   font-weight:800;
   margin-bottom:10px;
-  color:#ff4d4d; /* highlighted views */
+  color:#ff4d4d;
   text-shadow:0 0 20px rgba(255,77,77,0.3);
 }
 
@@ -520,6 +520,20 @@ Contact Me
 
 <script>
 
+/* ALWAYS OPEN WEBSITE FROM TOP */
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+window.onload = function () {
+
+  window.scrollTo(0, 0);
+
+  document.querySelector('.loader').classList.add('hidden');
+
+}
+
 /* CURSOR GLOW */
 
 const glow = document.getElementById('cursorGlow');
@@ -548,14 +562,6 @@ window.addEventListener('scroll', () => {
     }
 
   });
-
-});
-
-/* LOADER */
-
-window.addEventListener('load', () => {
-
-  document.querySelector('.loader').classList.add('hidden');
 
 });
 
