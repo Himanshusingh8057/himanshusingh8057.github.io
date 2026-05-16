@@ -70,7 +70,8 @@ body::after{
   min-height:100vh;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
+  padding-top:120px;
   animation:fadeIn 1s ease;
 }
 
@@ -80,6 +81,7 @@ h1{
   line-height:1.1;
   letter-spacing:-2px;
   margin-bottom:15px;
+  margin-top:0;
 }
 
 h2{
@@ -146,7 +148,7 @@ p{
 
 /* SHOWREEL */
 .showreel{
-  margin-top:25px;
+  margin-top:35px;
   margin-bottom:80px;
 }
 
@@ -304,6 +306,7 @@ p{
 
   .hero{
     min-height:90vh;
+    padding-top:90px;
   }
 
   .grid{
@@ -346,7 +349,7 @@ View My Work
 <div class="showreel">
 
 <iframe
-src="https://www.youtube.com/embed/O7SdJC33-xs?autoplay=0&rel=0&modestbranding=1"
+src="https://www.youtube.com/embed/O7SdJC33-xs?rel=0&modestbranding=1"
 allowfullscreen>
 </iframe>
 
@@ -524,15 +527,11 @@ Contact Me
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
-}
+};
 
-window.onload = function () {
-
-  window.scrollTo(0, 0);
-
-  document.querySelector('.loader').classList.add('hidden');
-
-}
+window.addEventListener('load', () => {
+  window.scrollTo(0,0);
+});
 
 /* CURSOR GLOW */
 
@@ -562,6 +561,14 @@ window.addEventListener('scroll', () => {
     }
 
   });
+
+});
+
+/* LOADER */
+
+window.addEventListener('load', () => {
+
+  document.querySelector('.loader').classList.add('hidden');
 
 });
 
