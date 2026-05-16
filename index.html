@@ -23,6 +23,7 @@ body{
 }
 
 /* GREEN OVERLAY */
+
 body::before{
   content:'';
   position:fixed;
@@ -35,6 +36,7 @@ body::before{
 }
 
 /* NOISE TEXTURE */
+
 body::after{
   content:'';
   position:fixed;
@@ -46,6 +48,7 @@ body::after{
 }
 
 /* CURSOR GLOW */
+
 .cursor-glow{
   position:fixed;
   width:300px;
@@ -66,6 +69,7 @@ body::after{
 }
 
 /* HERO */
+
 .hero{
   min-height:100vh;
   display:flex;
@@ -81,7 +85,7 @@ h1{
   line-height:1.1;
   letter-spacing:-2px;
   margin-bottom:15px;
-  margin-top:0;
+  margin-top:40px;
 }
 
 h2{
@@ -101,6 +105,7 @@ p{
 }
 
 /* SECTION */
+
 .section{
   padding:100px 0;
   opacity:0;
@@ -114,6 +119,7 @@ p{
 }
 
 /* CARD */
+
 .card{
   background:rgba(255,255,255,0.04);
   backdrop-filter:blur(14px);
@@ -147,15 +153,14 @@ p{
 }
 
 /* SHOWREEL */
+
 .showreel{
-  margin-top:35px;
+  margin-top:30px;
   margin-bottom:80px;
 }
 
-.showreel iframe{
+.showreel video{
   width:100%;
-  aspect-ratio:16/9;
-  border:none;
   border-radius:28px;
   overflow:hidden;
   box-shadow:
@@ -163,6 +168,7 @@ p{
 }
 
 /* THUMB */
+
 .thumb-vertical{
   width:100%;
   aspect-ratio:9/16;
@@ -183,6 +189,7 @@ p{
 }
 
 /* FLEX */
+
 .flex{
   display:flex;
   gap:40px;
@@ -212,6 +219,7 @@ p{
 }
 
 /* GRID */
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -219,6 +227,7 @@ p{
 }
 
 /* BUTTON */
+
 .button{
   display:inline-block;
   padding:16px 34px;
@@ -238,7 +247,35 @@ p{
   0 10px 30px rgba(0,255,140,0.35);
 }
 
+/* HUGE STATS SECTION */
+
+.stats-section{
+  padding:220px 0;
+  text-align:center;
+  overflow:hidden;
+}
+
+.stats-number{
+  font-size:10vw;
+  font-weight:900;
+  line-height:1;
+  color:#00ff99;
+  letter-spacing:-8px;
+  text-shadow:
+  0 0 40px rgba(0,255,153,0.25),
+  0 0 100px rgba(0,255,153,0.1);
+}
+
+.stats-label{
+  margin-top:20px;
+  font-size:1.2rem;
+  color:#8f8f8f;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
 /* LOADER */
+
 .loader{
   position:fixed;
   top:0;
@@ -293,6 +330,7 @@ p{
 }
 
 /* MOBILE */
+
 @media(max-width:768px){
 
   h1{
@@ -305,12 +343,21 @@ p{
   }
 
   .hero{
-    min-height:90vh;
+    min-height:auto;
     padding-top:90px;
   }
 
   .grid{
     grid-template-columns:1fr;
+  }
+
+  .stats-number{
+    font-size:18vw;
+    letter-spacing:-2px;
+  }
+
+  .stats-label{
+    font-size:0.9rem;
   }
 
 }
@@ -329,6 +376,7 @@ p{
 <div class="container">
 
 <!-- HERO -->
+
 <div class="hero">
 
 <h1>
@@ -336,28 +384,27 @@ I Create <span class="highlight">Viral Videos</span><br>
 That Drive Real Growth
 </h1>
 
-<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">
-100M+ Views Generated
-</p>
-
 <a href="#short" class="button"
 onclick="document.getElementById('short').scrollIntoView({behavior:'smooth'}); return false;">
 View My Work
 </a>
 
 <!-- SHOWREEL -->
+
 <div class="showreel">
 
-<iframe
-src="https://www.youtube.com/embed/O7SdJC33-xs?rel=0&modestbranding=1"
-allowfullscreen>
-</iframe>
+<video autoplay muted loop playsinline controls>
+
+<source src="showreel.mp4" type="video/mp4">
+
+</video>
 
 </div>
 
 </div>
 
 <!-- VIRAL PROOF -->
+
 <div class="section">
 
 <div class="flex">
@@ -403,6 +450,7 @@ src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
 </div>
 
 <!-- SHORT FORM -->
+
 <div class="section" id="short">
 
 <h2>🔥 Short Form Content</h2>
@@ -447,6 +495,7 @@ src="https://img.youtube.com/vi/NRt5g7j0yas/maxresdefault.jpg">
 </div>
 
 <!-- AI -->
+
 <div class="section">
 
 <h2>🤖 AI Video Projects</h2>
@@ -499,7 +548,22 @@ src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 
 </div>
 
+<!-- HUGE STATS -->
+
+<div class="section stats-section">
+
+<div class="stats-number" id="counter">
+0M+
+</div>
+
+<div class="stats-label">
+Views Generated Across Platforms
+</div>
+
+</div>
+
 <!-- LONG FORM -->
+
 <div class="section">
 
 <h2>🎥 Long Form Content</h2>
@@ -509,6 +573,7 @@ src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 </div>
 
 <!-- CONTACT -->
+
 <div class="section">
 
 <h2>📩 Work With Me</h2>
@@ -523,15 +588,15 @@ Contact Me
 
 <script>
 
-/* ALWAYS OPEN WEBSITE FROM TOP */
+/* FORCE PAGE TOP */
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
-};
+}
 
-window.addEventListener('load', () => {
-  window.scrollTo(0,0);
-});
+window.onload = function () {
+  window.scrollTo(0, 0);
+}
 
 /* CURSOR GLOW */
 
@@ -561,6 +626,50 @@ window.addEventListener('scroll', () => {
     }
 
   });
+
+});
+
+/* COUNTER ANIMATION */
+
+let started = false;
+
+function animateCounter(){
+
+  const counter = document.getElementById('counter');
+
+  const target = 100;
+
+  let count = 0;
+
+  const interval = setInterval(() => {
+
+    count++;
+
+    counter.innerHTML = count + 'M+';
+
+    if(count >= target){
+
+      clearInterval(interval);
+
+    }
+
+  }, 25);
+
+}
+
+window.addEventListener('scroll', () => {
+
+  const statsSection = document.querySelector('.stats-section');
+
+  const top = statsSection.getBoundingClientRect().top;
+
+  if(top < window.innerHeight - 100 && !started){
+
+    started = true;
+
+    animateCounter();
+
+  }
 
 });
 
