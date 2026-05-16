@@ -1,182 +1,707 @@
-<!-- HUGE STATS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Editor Portfolio</title>
 
-<div class="section stats-section">
-
-<div class="stats-number" id="counter">
-0M+
-</div>
-
-<div class="stats-label">
-Views Generated For Clients
-</div>
-
-<!-- PROOF IMAGES -->
-
-<div class="proof-wrapper">
-
-<div class="proof-card">
-
-<img src="before.jpg" alt="Before Growth">
-
-<div class="proof-text">
-1K Subscribers
-</div>
-
-</div>
-
-<div class="proof-card">
-
-<img src="after.jpg" alt="After Growth">
-
-<div class="proof-text">
-136K Subscribers
-</div>
-
-</div>
-
-</div>
-
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* HUGE STATS SECTION */
-
-.stats-section{
-  padding:220px 0;
-  text-align:center;
-  overflow:hidden;
+html{
+  scroll-behavior:smooth;
 }
 
-.stats-number{
-  font-size:13vw;
-  font-weight:900;
-  line-height:0.9;
-  color:#00ff99;
-  letter-spacing:-10px;
-  width:100%;
-  text-align:center;
-
-  text-shadow:
-  0 0 40px rgba(0,255,153,0.25),
-  0 0 120px rgba(0,255,153,0.08);
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#050505;
+  color:white;
+  overflow-x:hidden;
+  position:relative;
 }
 
-.stats-label{
-  margin-top:25px;
-  font-size:1.3rem;
-  color:#8f8f8f;
-  letter-spacing:4px;
-  text-transform:uppercase;
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top right, rgba(0,255,140,0.08), transparent 30%),
+  radial-gradient(circle at bottom left, rgba(0,255,140,0.05), transparent 35%);
+  pointer-events:none;
+  z-index:0;
 }
 
-/* PROOF SECTION */
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  opacity:0.03;
+  background-image:url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  pointer-events:none;
+  z-index:0;
+}
 
-.proof-wrapper{
-  margin-top:100px;
+.cursor-glow{
+  position:fixed;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(0,255,140,0.12), transparent 70%);
+  pointer-events:none;
+  transform:translate(-50%, -50%);
+  z-index:0;
+  filter:blur(10px);
+}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
   display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
+  flex-direction:column;
+  justify-content:flex-start;
+  padding-top:120px;
+  animation:fadeIn 1s ease;
 }
 
-.proof-card{
-  width:420px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:24px;
-  overflow:hidden;
-  backdrop-filter:blur(14px);
-
-  transition:0.4s ease;
+h1{
+  font-size:5rem;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+  max-width:900px;
 }
 
-.proof-card:hover{
-  transform:translateY(-8px);
-  box-shadow:
-  0 0 40px rgba(0,255,140,0.12);
+h2{
+  font-size:2.2rem;
+  margin-bottom:30px;
 }
 
-.proof-card img{
-  width:100%;
-  display:block;
+p{
+  color:#bdbdbd;
+  line-height:1.7;
 }
 
-.proof-text{
-  padding:20px;
-  font-size:1.2rem;
+.highlight{
+  color:#00ff99;
+  text-shadow:0 0 25px rgba(0,255,153,0.4);
+}
+
+.hero-sub{
+  font-size:1.4rem;
   font-weight:700;
   color:white;
+  margin-bottom:20px;
+}
+
+.button{
+  display:inline-block;
+  padding:16px 36px;
+  background:linear-gradient(135deg,#00ff99,#00c26e);
+  color:black;
+  border-radius:14px;
+  text-decoration:none;
+  margin-top:10px;
+  font-weight:700;
+  transition:0.35s ease;
+  width:fit-content;
+}
+
+.button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,255,140,0.35);
+}
+
+/* SHOWREEL */
+
+.showreel{
+  margin-top:45px;
+  width:100%;
+}
+
+.showreel video{
+  width:100%;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:
+  0 0 50px rgba(0,255,140,0.12);
+  background:black;
+}
+
+/* SECTION */
+
+.section{
+  padding:120px 0;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* HUGE COUNTER */
+
+.stats-section{
+  padding:160px 0;
+  text-align:center;
+}
+
+.big-counter{
+  font-size:9vw;
+  font-weight:900;
+  line-height:0.9;
+  color:white;
+  letter-spacing:-6px;
+}
+
+.big-counter span{
+  color:#00ff99;
+  text-shadow:0 0 35px rgba(0,255,153,0.35);
+}
+
+.counter-sub{
+  margin-top:30px;
+  font-size:2rem;
+  font-weight:700;
+  color:#cfcfcf;
+}
+
+/* PROOF IMAGES */
+
+.proof-grid{
+  margin-top:90px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.proof-box{
+  height:420px;
+  border-radius:28px;
+  border:2px dashed rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+  color:#777;
+  backdrop-filter:blur(12px);
+}
+
+/* CARDS */
+
+.card{
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(14px);
+  padding:15px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:all 0.45s ease;
+  overflow:hidden;
+  position:relative;
+  text-decoration:none;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:
+  0 0 40px rgba(0,255,140,0.12),
+  0 0 120px rgba(0,255,140,0.06);
+  border-color:rgba(0,255,140,0.18);
+}
+
+.thumb-vertical{
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  border-radius:16px;
+  transition:all 0.5s ease;
+}
+
+.video-thumb{
+  width:100%;
+  border-radius:16px;
+  transition:transform 0.5s ease;
+}
+
+.card:hover .video-thumb,
+.card:hover .thumb-vertical{
+  transform:scale(1.04);
+}
+
+/* FLEX */
+
+.flex{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  margin-bottom:100px;
+}
+
+.flex.reverse{
+  flex-direction:row-reverse;
+}
+
+.text-box{
+  max-width:500px;
+}
+
+.text-box h3{
+  font-size:3rem;
+  font-weight:900;
+  margin-bottom:10px;
+  color:#ff4d4d;
+  text-shadow:0 0 20px rgba(255,77,77,0.3);
+}
+
+.text-box p:first-of-type{
+  color:#00ff99;
+  font-weight:700;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+/* LOADER */
+
+.loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:opacity 0.8s ease;
+}
+
+.loader.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+
+.loader span{
+  font-size:1.3rem;
+  font-weight:700;
+  color:#00ff99;
+  letter-spacing:2px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    opacity:0.3;
+    transform:scale(0.95);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1);
+  }
+  100%{
+    opacity:0.3;
+    transform:scale(0.95);
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-  .stats-number{
-    font-size:22vw;
-    letter-spacing:-4px;
+  h1{
+    font-size:3rem;
+    letter-spacing:-2px;
   }
 
-  .stats-label{
-    font-size:0.9rem;
-    padding:0 10px;
+  .hero{
+    padding-top:80px;
   }
 
-  .proof-card{
-    width:100%;
+  .flex,
+  .flex.reverse{
+    flex-direction:column;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .proof-grid{
+    grid-template-columns:1fr;
+  }
+
+  .big-counter{
+    font-size:20vw;
+  }
+
+  .counter-sub{
+    font-size:1.3rem;
   }
 
 }
 
 </style>
+</head>
+
+<body>
+
+<div class="loader">
+<span>Loading Portfolio...</span>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<div class="container">
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>
+I Create <span class="highlight">Viral Videos</span><br>
+That Drive Real Growth
+</h1>
+
+<p class="hero-sub">
+Content Engineered For Retention & Virality
+</p>
+
+<a href="#short" class="button">
+View My Work
+</a>
+
+<!-- SHOWREEL -->
+
+<div class="showreel">
+
+<!-- REPLACE assets/showreel.mp4 WITH YOUR VIDEO FILE -->
+
+<video autoplay muted loop controls playsinline>
+
+<source src="assets/showreel.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+</div>
+
+<!-- VIRAL PROOF -->
+
+<div class="section">
+
+<div class="flex">
+
+<a href="https://youtube.com/shorts/7dvHy80BDGw"
+target="_blank"
+class="card"
+style="flex:1">
+
+<img class="video-thumb"
+src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
+
+</a>
+
+<div class="text-box">
+<h3>9.5M Views</h3>
+<p><b>Minimal editing</b></p>
+<p>Optimized for virality & retention</p>
+</div>
+
+</div>
+
+<div class="flex reverse">
+
+<a href="https://youtube.com/shorts/B8eMhzRh2TQ"
+target="_blank"
+class="card"
+style="flex:1">
+
+<img class="video-thumb"
+src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
+
+</a>
+
+<div class="text-box">
+<h3>8.2M Views</h3>
+<p><b>High-retention editing</b></p>
+<p>Fast pacing + engagement</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- SHORT FORM -->
+
+<div class="section" id="short">
+
+<h2>🔥 Short Form Content</h2>
+
+<div class="grid">
+
+<a href="https://youtube.com/shorts/GEts_t9zPnQ"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/GEts_t9zPnQ/maxresdefault.jpg">
+
+<p>2.9M views</p>
+
+</a>
+
+<a href="https://youtube.com/shorts/9iFBNVnfzhw"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/9iFBNVnfzhw/maxresdefault.jpg">
+
+<p>2.5M views</p>
+
+</a>
+
+<a href="https://youtube.com/shorts/NRt5g7j0yas"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/NRt5g7j0yas/maxresdefault.jpg">
+
+<p>1.8M views</p>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- AI -->
+
+<div class="section">
+
+<h2>🤖 AI Video Projects</h2>
+
+<p style="margin-bottom:20px;">
+AI-enhanced storytelling & visual production
+</p>
+
+<div class="grid">
+
+<a href="https://youtube.com/shorts/tN50BiEvgzg"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/tN50BiEvgzg/maxresdefault.jpg">
+
+<p>AI-powered edit</p>
+
+</a>
+
+<a href="https://youtube.com/shorts/Jg7gRkAvgrQ"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/Jg7gRkAvgrQ/maxresdefault.jpg">
+
+</a>
+
+<a href="https://youtube.com/shorts/WeGgQGp2A4I"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/WeGgQGp2A4I/maxresdefault.jpg">
+
+</a>
+
+<a href="https://youtube.com/shorts/9uW9mGC42Hg"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
+
+</a>
+
+</div>
+
+</div>
+
+<!-- BIG STATS -->
+
+<div class="section stats-section">
+
+<div class="big-counter">
+<span id="counter">0</span>M+
+</div>
+
+<div class="counter-sub">
+Views Generated For Clients
+</div>
+
+<!-- PROOF IMAGES -->
+
+<div class="proof-grid">
+
+<div class="proof-box">
+1K SUBSCRIBERS SCREENSHOT
+</div>
+
+<div class="proof-box">
+130K SUBSCRIBERS SCREENSHOT
+</div>
+
+</div>
+
+</div>
+
+<!-- LONG FORM -->
+
+<div class="section">
+
+<h2>🎥 Long Form Content</h2>
+
+<p>Coming soon...</p>
+
+</div>
+
+<!-- CONTACT -->
+
+<div class="section">
+
+<h2>📩 Work With Me</h2>
+
+<a href="https://wa.me/your-number" class="button">
+Contact Me
+</a>
+
+</div>
+
+</div>
 
 <script>
+
+/* FORCE PAGE LOAD AT TOP */
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+window.onload = function () {
+  window.scrollTo(0, 0);
+
+  document.querySelector('.loader').classList.add('hidden');
+};
+
+/* CURSOR GLOW */
+
+const glow = document.getElementById('cursorGlow');
+
+document.addEventListener('mousemove', e => {
+
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+
+});
+
+/* SCROLL ANIMATION */
+
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+
+  sections.forEach(sec => {
+
+    const top = sec.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 100){
+
+      sec.classList.add('show');
+
+    }
+
+  });
+
+});
 
 /* COUNTER ANIMATION */
 
 let started = false;
 
-function animateCounter(){
-
-  const counter = document.getElementById('counter');
-
-  const target = 100;
-
-  let count = 0;
-
-  const interval = setInterval(() => {
-
-    count++;
-
-    counter.innerHTML = count + 'M+';
-
-    if(count >= target){
-
-      clearInterval(interval);
-
-    }
-
-  }, 25);
-
-}
-
 window.addEventListener('scroll', () => {
 
-  const statsSection = document.querySelector('.stats-section');
+  const stats = document.querySelector('.stats-section');
 
-  if(!statsSection) return;
+  const position = stats.getBoundingClientRect().top;
 
-  const top = statsSection.getBoundingClientRect().top;
-
-  if(top < window.innerHeight - 100 && !started){
+  if(position < window.innerHeight - 100 && !started){
 
     started = true;
 
-    animateCounter();
+    let count = 0;
+
+    const target = 100;
+
+    const counter = document.getElementById('counter');
+
+    const interval = setInterval(() => {
+
+      count++;
+
+      counter.innerText = count;
+
+      if(count >= target){
+
+        clearInterval(interval);
+
+      }
+
+    }, 20);
 
   }
 
 });
 
 </script>
+
+</body>
+</html>
