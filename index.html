@@ -132,10 +132,11 @@ p{
   width:100%;
 }
 
-.showreel video{
+.showreel iframe{
   width:100%;
+  aspect-ratio:16/9;
+  border:none;
   border-radius:30px;
-  border:1px solid rgba(255,255,255,0.08);
   box-shadow:0 0 80px rgba(0,255,140,0.08);
 }
 
@@ -345,10 +346,6 @@ I Create <span class="highlight">Viral Videos</span><br>
 That Drive Real Growth
 </h1>
 
-<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">
-100M+ Views Generated
-</p>
-
 <a href="#short" class="button">
 View My Work
 </a>
@@ -357,13 +354,10 @@ View My Work
 
 <div class="showreel">
 
-<!-- REPLACE assets/showreel.mp4 WITH YOUR VIDEO PATH -->
-
-<video autoplay muted loop playsinline controls>
-
-<source src="assets/showreel.mp4" type="video/mp4">
-
-</video>
+<iframe
+src="https://www.youtube.com/embed/O7SdJC33-xs?autoplay=0&rel=0&modestbranding=1"
+allowfullscreen>
+</iframe>
 
 </div>
 
@@ -466,10 +460,6 @@ src="https://img.youtube.com/vi/NRt5g7j0yas/maxresdefault.jpg">
 
 <h2>🤖 AI Video Projects</h2>
 
-<p style="margin-bottom:20px;">
-AI-enhanced storytelling & visual production
-</p>
-
 <div class="grid">
 
 <a href="https://youtube.com/shorts/tN50BiEvgzg"
@@ -478,8 +468,6 @@ class="card">
 
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/tN50BiEvgzg/maxresdefault.jpg">
-
-<p>AI Powered Edit</p>
 
 </a>
 
@@ -490,8 +478,6 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/Jg7gRkAvgrQ/maxresdefault.jpg">
 
-<p>AI Visual Storytelling</p>
-
 </a>
 
 <a href="https://youtube.com/shorts/WeGgQGp2A4I"
@@ -501,8 +487,6 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/WeGgQGp2A4I/maxresdefault.jpg">
 
-<p>AI Motion Design</p>
-
 </a>
 
 <a href="https://youtube.com/shorts/9uW9mGC42Hg"
@@ -511,8 +495,6 @@ class="card">
 
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
-
-<p>Creative AI Workflow</p>
 
 </a>
 
@@ -538,9 +520,6 @@ Views Generated For Clients
 
 <div class="proof-card">
 
-<!-- UPLOAD YOUR BEFORE IMAGE -->
-<!-- replace before.jpg -->
-
 <img src="before.jpg">
 
 <h3>Before Working Together</h3>
@@ -550,9 +529,6 @@ Views Generated For Clients
 </div>
 
 <div class="proof-card">
-
-<!-- UPLOAD YOUR AFTER IMAGE -->
-<!-- replace after.jpg -->
 
 <img src="after.jpg">
 
@@ -627,8 +603,6 @@ Contact Me
 
 <script>
 
-/* FORCE TOP */
-
 window.onbeforeunload = function () {
 window.scrollTo(0, 0);
 };
@@ -641,8 +615,6 @@ document.querySelector('.loader').classList.add('hidden');
 
 };
 
-/* CURSOR GLOW */
-
 const glow = document.getElementById('cursorGlow');
 
 document.addEventListener('mousemove', e => {
@@ -651,8 +623,6 @@ glow.style.left = e.clientX + 'px';
 glow.style.top = e.clientY + 'px';
 
 });
-
-/* SCROLL ANIMATION */
 
 const sections = document.querySelectorAll('.section');
 
@@ -671,8 +641,6 @@ sec.classList.add('show');
 });
 
 });
-
-/* COUNTER */
 
 let counter = document.getElementById('counter');
 
