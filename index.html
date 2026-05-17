@@ -208,7 +208,7 @@ p{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(280px, 340px));
+  grid-template-columns:repeat(3, minmax(320px, 380px));
   justify-content:center;
   gap:35px;
 }
@@ -267,8 +267,29 @@ p{
 .proof-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:30px;
+  gap:35px;
   margin-top:60px;
+}
+
+.proof-wrapper{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.outside-heading{
+  font-size:1rem;
+  letter-spacing:4px;
+  color:#00ff99;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.outside-text{
+  margin-top:18px;
+  font-size:1rem;
+  color:#bdbdbd;
+  text-align:center;
 }
 
 .proof-card{
@@ -277,16 +298,7 @@ p{
   border-radius:28px;
   overflow:hidden;
   padding:18px;
-  text-align:center;
-}
-
-.proof-heading{
-  font-size:1rem;
-  letter-spacing:4px;
-  color:#00ff99;
-  margin-bottom:20px;
-  margin-top:5px;
-  font-weight:800;
+  width:100%;
 }
 
 .proof-image{
@@ -563,27 +575,39 @@ Views Generated For Clients
 
 <div class="proof-grid">
 
-<div class="proof-card">
+<div class="proof-wrapper">
 
-<h3 class="proof-heading">BEFORE</h3>
+<div class="outside-heading">BEFORE</div>
+
+<div class="proof-card">
 
 <img 
 src="before.png"
 class="proof-image">
 
-<p>1K subscribers starting point</p>
+</div>
+
+<div class="outside-text">
+1K subscribers starting point
+</div>
 
 </div>
 
-<div class="proof-card">
+<div class="proof-wrapper">
 
-<h3 class="proof-heading">AFTER</h3>
+<div class="outside-heading">AFTER</div>
+
+<div class="proof-card">
 
 <img 
 src="after.png"
 class="proof-image">
 
-<p>137K+ subscribers with viral content strategy</p>
+</div>
+
+<div class="outside-text">
+137K+ subscribers with viral content strategy
+</div>
 
 </div>
 
