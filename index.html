@@ -62,12 +62,16 @@ body::after{
   z-index:2;
 }
 
+/* HERO */
+
 .hero{
   min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
+  align-items:center;
   padding-top:70px;
+  text-align:center;
 }
 
 h1{
@@ -76,7 +80,7 @@ h1{
   line-height:1.05;
   letter-spacing:-3px;
   margin-bottom:20px;
-  max-width:950px;
+  max-width:1100px;
 }
 
 h2{
@@ -95,6 +99,8 @@ p{
   text-shadow:0 0 20px rgba(0,255,153,0.35);
 }
 
+/* SECTION */
+
 .section{
   padding:110px 0;
   opacity:0;
@@ -106,6 +112,8 @@ p{
   opacity:1;
   transform:translateY(0);
 }
+
+/* CARD */
 
 .card{
   background:rgba(255,255,255,0.04);
@@ -130,8 +138,8 @@ p{
 /* SHOWREEL */
 
 .showreel{
-  margin-top:30px;
-  width:88%;
+  margin-top:35px;
+  width:82%;
 }
 
 .showreel iframe{
@@ -156,8 +164,6 @@ p{
   width:100%;
   border-radius:18px;
   transition:0.5s ease;
-  max-height:420px;
-  object-fit:cover;
 }
 
 .card:hover img{
@@ -178,11 +184,11 @@ p{
 }
 
 .viral-card{
-  flex:0.62;
+  flex:0.65;
 }
 
 .text-box{
-  max-width:450px;
+  max-width:420px;
 }
 
 .text-box h3{
@@ -198,18 +204,19 @@ p{
   font-weight:700;
 }
 
-/* BIGGER SHORTS + AI CARDS */
+/* GRID */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(220px, 270px));
+  grid-template-columns:repeat(3, minmax(280px, 340px));
   justify-content:center;
-  gap:28px;
+  gap:35px;
 }
 
 .grid p{
   color:#00ff99;
   font-weight:700;
+  margin-top:12px;
 }
 
 /* BUTTON */
@@ -246,7 +253,6 @@ p{
   color:#00ff99;
   letter-spacing:-5px;
   text-shadow:0 0 60px rgba(0,255,140,0.2);
-  transition:0.3s ease;
 }
 
 .stats-subtext{
@@ -278,22 +284,23 @@ p{
   font-size:1rem;
   letter-spacing:4px;
   color:#00ff99;
-  margin-bottom:18px;
+  margin-bottom:20px;
+  margin-top:5px;
   font-weight:800;
 }
 
 .proof-image{
   width:100%;
-  height:330px;
+  height:340px;
   object-fit:cover;
   object-position:center top;
   border-radius:22px;
-  transform:scale(1.12);
+  transform:scale(1.18);
   transition:0.5s ease;
 }
 
 .proof-card:hover .proof-image{
-  transform:scale(1.16);
+  transform:scale(1.22);
 }
 
 /* LONG FORM */
@@ -368,10 +375,6 @@ p{
   }
 
   .showreel{
-    width:100%;
-  }
-
-  .viral-card{
     width:100%;
   }
 
@@ -556,6 +559,8 @@ src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 Views Generated For Clients
 </div>
 
+<!-- CLIENT PROOF -->
+
 <div class="proof-grid">
 
 <div class="proof-card">
@@ -686,8 +691,6 @@ sec.classList.add('show');
 
 });
 
-/* COUNTER ANIMATION */
-
 let counter = document.getElementById('counter');
 
 let started = false;
@@ -704,9 +707,9 @@ let count = 0;
 
 const target = 100;
 
-const speed = 18;
+const speed = 20;
 
-const updateCounter = () => {
+const update = () => {
 
 count++;
 
@@ -714,13 +717,13 @@ counter.innerText = count + "M+";
 
 if(count < target){
 
-requestAnimationFrame(updateCounter);
+setTimeout(update, speed);
 
 }
 
-};
+}
 
-updateCounter();
+update();
 
 }
 
