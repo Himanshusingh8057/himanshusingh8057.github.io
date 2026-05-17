@@ -198,13 +198,13 @@ p{
   font-weight:700;
 }
 
-/* SMALLER SHORTS + AI CARDS */
+/* BIGGER SHORTS + AI CARDS */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(170px, 210px));
+  grid-template-columns:repeat(3, minmax(220px, 270px));
   justify-content:center;
-  gap:22px;
+  gap:28px;
 }
 
 .grid p{
@@ -246,6 +246,7 @@ p{
   color:#00ff99;
   letter-spacing:-5px;
   text-shadow:0 0 60px rgba(0,255,140,0.2);
+  transition:0.3s ease;
 }
 
 .stats-subtext{
@@ -685,6 +686,8 @@ sec.classList.add('show');
 
 });
 
+/* COUNTER ANIMATION */
+
 let counter = document.getElementById('counter');
 
 let started = false;
@@ -701,9 +704,9 @@ let count = 0;
 
 const target = 100;
 
-const speed = 20;
+const speed = 18;
 
-const update = () => {
+const updateCounter = () => {
 
 count++;
 
@@ -711,13 +714,13 @@ counter.innerText = count + "M+";
 
 if(count < target){
 
-setTimeout(update, speed);
+requestAnimationFrame(updateCounter);
 
 }
 
-}
+};
 
-update();
+updateCounter();
 
 }
 
