@@ -22,8 +22,6 @@ body{
   position:relative;
 }
 
-/* BACKGROUND */
-
 body::before{
   content:'';
   position:fixed;
@@ -45,8 +43,6 @@ body::after{
   z-index:0;
 }
 
-/* CURSOR */
-
 .cursor-glow{
   position:fixed;
   width:300px;
@@ -58,24 +54,20 @@ body::after{
   filter:blur(10px);
 }
 
-/* CONTAINER */
-
 .container{
-  width:95%;
-  max-width:1700px;
+  width:96%;
+  max-width:1800px;
   margin:auto;
   position:relative;
   z-index:2;
 }
-
-/* HERO */
 
 .hero{
   min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding-top:60px;
+  padding-top:70px;
 }
 
 h1{
@@ -83,7 +75,7 @@ h1{
   font-weight:900;
   line-height:1.05;
   letter-spacing:-3px;
-  margin-bottom:25px;
+  margin-bottom:20px;
   max-width:950px;
 }
 
@@ -103,8 +95,6 @@ p{
   text-shadow:0 0 20px rgba(0,255,153,0.35);
 }
 
-/* SECTION */
-
 .section{
   padding:110px 0;
   opacity:0;
@@ -117,13 +107,11 @@ p{
   transform:translateY(0);
 }
 
-/* CARD */
-
 .card{
   background:rgba(255,255,255,0.04);
   backdrop-filter:blur(14px);
-  padding:12px;
-  border-radius:24px;
+  padding:15px;
+  border-radius:28px;
   border:1px solid rgba(255,255,255,0.06);
   transition:all 0.45s ease;
   overflow:hidden;
@@ -132,7 +120,7 @@ p{
 }
 
 .card:hover{
-  transform:translateY(-8px) scale(1.02);
+  transform:translateY(-10px) scale(1.02);
   box-shadow:
   0 0 40px rgba(0,255,140,0.12),
   0 0 120px rgba(0,255,140,0.06);
@@ -142,59 +130,63 @@ p{
 /* SHOWREEL */
 
 .showreel{
-  margin-top:25px;
-  width:92%;
-  max-width:1050px;
+  margin-top:30px;
+  width:88%;
 }
 
 .showreel iframe{
   width:100%;
   aspect-ratio:16/9;
   border:none;
-  border-radius:28px;
+  border-radius:26px;
   box-shadow:0 0 80px rgba(0,255,140,0.08);
 }
 
-/* THUMBNAILS */
+/* THUMB */
 
 .thumb-vertical{
   width:100%;
   aspect-ratio:9/16;
-  max-height:420px;
   object-fit:cover;
-  border-radius:16px;
+  border-radius:18px;
   transition:0.5s ease;
 }
 
 .video-thumb{
   width:100%;
-  border-radius:16px;
+  border-radius:18px;
   transition:0.5s ease;
+  max-height:420px;
+  object-fit:cover;
 }
 
 .card:hover img{
   transform:scale(1.04);
 }
 
-/* FLEX */
+/* VIRAL FLEX */
 
 .flex{
   display:flex;
   gap:40px;
   align-items:center;
-  margin-bottom:90px;
+  margin-bottom:80px;
 }
 
 .flex.reverse{
   flex-direction:row-reverse;
 }
 
+.viral-card{
+  flex:0.62;
+}
+
 .text-box{
-  max-width:500px;
+  max-width:450px;
 }
 
 .text-box h3{
-  font-size:2.7rem;
+  font-size:2.5rem;
   font-weight:900;
   margin-bottom:12px;
   color:#ff4d4d;
@@ -206,13 +198,13 @@ p{
   font-weight:700;
 }
 
-/* SMALLER GRID CARDS */
+/* SMALLER SHORTS + AI CARDS */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,220px));
+  grid-template-columns:repeat(3, minmax(170px, 210px));
   justify-content:center;
-  gap:20px;
+  gap:22px;
 }
 
 .grid p{
@@ -268,33 +260,39 @@ p{
 .proof-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
+  gap:30px;
   margin-top:60px;
 }
 
 .proof-card{
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.06);
-  border-radius:24px;
+  border-radius:28px;
   overflow:hidden;
-  padding:16px;
-}
-
-.proof-label{
+  padding:18px;
   text-align:center;
-  font-size:1.2rem;
-  font-weight:800;
-  margin-bottom:12px;
-  color:#00ff99;
 }
 
-.proof-card img{
+.proof-heading{
+  font-size:1rem;
+  letter-spacing:4px;
+  color:#00ff99;
+  margin-bottom:18px;
+  font-weight:800;
+}
+
+.proof-image{
   width:100%;
-  height:320px;
+  height:330px;
   object-fit:cover;
   object-position:center top;
-  border-radius:18px;
-  display:block;
+  border-radius:22px;
+  transform:scale(1.12);
+  transition:0.5s ease;
+}
+
+.proof-card:hover .proof-image{
+  transform:scale(1.16);
 }
 
 /* LONG FORM */
@@ -309,12 +307,12 @@ p{
   width:100%;
   aspect-ratio:16/9;
   border:none;
-  border-radius:20px;
+  border-radius:22px;
 }
 
 .long-card h3{
-  margin-top:12px;
-  font-size:1.1rem;
+  margin-top:14px;
+  font-size:1.2rem;
 }
 
 /* LOADER */
@@ -341,8 +339,6 @@ p{
   font-weight:700;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
 
   h1{
@@ -354,7 +350,15 @@ p{
     flex-direction:column;
   }
 
+  .grid{
+    grid-template-columns:1fr;
+  }
+
   .proof-grid{
+    grid-template-columns:1fr;
+  }
+
+  .longform-grid{
     grid-template-columns:1fr;
   }
 
@@ -362,8 +366,12 @@ p{
     font-size:20vw;
   }
 
-  .longform-grid{
-    grid-template-columns:1fr;
+  .showreel{
+    width:100%;
+  }
+
+  .viral-card{
+    width:100%;
   }
 
 }
@@ -415,8 +423,7 @@ allowfullscreen>
 
 <a href="https://youtube.com/shorts/7dvHy80BDGw"
 target="_blank"
-class="card"
-style="flex:0.8">
+class="card viral-card">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
@@ -435,8 +442,7 @@ src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
 
 <a href="https://youtube.com/shorts/B8eMhzRh2TQ"
 target="_blank"
-class="card"
-style="flex:0.8">
+class="card viral-card">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
@@ -506,15 +512,6 @@ src="https://img.youtube.com/vi/NRt5g7j0yas/maxresdefault.jpg">
 
 <div class="grid">
 
-<a href="https://youtube.com/shorts/tN50BiEvgzg"
-target="_blank"
-class="card">
-
-<img class="thumb-vertical"
-src="https://img.youtube.com/vi/tN50BiEvgzg/maxresdefault.jpg">
-
-</a>
-
 <a href="https://youtube.com/shorts/Jg7gRkAvgrQ"
 target="_blank"
 class="card">
@@ -530,6 +527,15 @@ class="card">
 
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/WeGgQGp2A4I/maxresdefault.jpg">
+
+</a>
+
+<a href="https://youtube.com/shorts/9uW9mGC42Hg"
+target="_blank"
+class="card">
+
+<img class="thumb-vertical"
+src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 
 </a>
 
@@ -549,27 +555,29 @@ src="https://img.youtube.com/vi/WeGgQGp2A4I/maxresdefault.jpg">
 Views Generated For Clients
 </div>
 
-<!-- BEFORE AFTER -->
-
 <div class="proof-grid">
 
 <div class="proof-card">
 
-<div class="proof-label">
-Before
-</div>
+<h3 class="proof-heading">BEFORE</h3>
 
-<img src="before.png">
+<img 
+src="before.png"
+class="proof-image">
+
+<p>1K subscribers starting point</p>
 
 </div>
 
 <div class="proof-card">
 
-<div class="proof-label">
-After
-</div>
+<h3 class="proof-heading">AFTER</h3>
 
-<img src="after.png">
+<img 
+src="after.png"
+class="proof-image">
+
+<p>137K+ subscribers with viral content strategy</p>
 
 </div>
 
