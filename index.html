@@ -67,7 +67,7 @@ body::after{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding-top:80px;
+  padding-top:70px;
 }
 
 h1{
@@ -127,18 +127,22 @@ p{
   border-color:rgba(0,255,140,0.18);
 }
 
+/* SHOWREEL */
+
 .showreel{
-  margin-top:35px;
-  width:100%;
+  margin-top:30px;
+  width:88%;
 }
 
 .showreel iframe{
   width:100%;
   aspect-ratio:16/9;
   border:none;
-  border-radius:30px;
+  border-radius:26px;
   box-shadow:0 0 80px rgba(0,255,140,0.08);
 }
+
+/* THUMB */
 
 .thumb-vertical{
   width:100%;
@@ -158,23 +162,29 @@ p{
   transform:scale(1.04);
 }
 
+/* VIRAL FLEX */
+
 .flex{
   display:flex;
-  gap:50px;
+  gap:40px;
   align-items:center;
-  margin-bottom:100px;
+  margin-bottom:80px;
 }
 
 .flex.reverse{
   flex-direction:row-reverse;
 }
 
+.viral-card{
+  flex:0.75;
+}
+
 .text-box{
-  max-width:500px;
+  max-width:450px;
 }
 
 .text-box h3{
-  font-size:3rem;
+  font-size:2.5rem;
   font-weight:900;
   margin-bottom:12px;
   color:#ff4d4d;
@@ -186,9 +196,11 @@ p{
   font-weight:700;
 }
 
+/* GRID */
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:25px;
 }
 
@@ -196,6 +208,8 @@ p{
   color:#00ff99;
   font-weight:700;
 }
+
+/* BUTTON */
 
 .button{
   display:inline-block;
@@ -214,6 +228,8 @@ p{
   transform:translateY(-4px);
   box-shadow:0 10px 30px rgba(0,255,140,0.35);
 }
+
+/* STATS */
 
 .stats-section{
   padding:160px 0;
@@ -236,6 +252,8 @@ p{
   font-weight:700;
 }
 
+/* BEFORE AFTER */
+
 .proof-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -253,45 +271,48 @@ p{
 }
 
 .proof-heading{
-  font-size:1.1rem;
+  font-size:1rem;
   letter-spacing:4px;
   color:#00ff99;
   margin-bottom:18px;
-  margin-top:5px;
   font-weight:800;
 }
 
 .proof-image{
   width:100%;
-  height:420px;
+  height:330px;
   object-fit:cover;
   object-position:center top;
   border-radius:22px;
-  transform:scale(1.22);
+  transform:scale(1.12);
   transition:0.5s ease;
 }
 
 .proof-card:hover .proof-image{
-  transform:scale(1.27);
+  transform:scale(1.16);
 }
+
+/* LONG FORM */
 
 .longform-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:30px;
+  gap:25px;
 }
 
 .long-card iframe{
   width:100%;
   aspect-ratio:16/9;
   border:none;
-  border-radius:24px;
+  border-radius:22px;
 }
 
 .long-card h3{
-  margin-top:15px;
-  font-size:1.3rem;
+  margin-top:14px;
+  font-size:1.2rem;
 }
+
+/* LOADER */
 
 .loader{
   position:fixed;
@@ -340,6 +361,10 @@ p{
 
   .big-counter{
     font-size:20vw;
+  }
+
+  .showreel{
+    width:100%;
   }
 
 }
@@ -391,8 +416,7 @@ allowfullscreen>
 
 <a href="https://youtube.com/shorts/7dvHy80BDGw"
 target="_blank"
-class="card"
-style="flex:1">
+class="card viral-card">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
@@ -411,8 +435,7 @@ src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
 
 <a href="https://youtube.com/shorts/B8eMhzRh2TQ"
 target="_blank"
-class="card"
-style="flex:1">
+class="card viral-card">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
@@ -470,17 +493,6 @@ src="https://img.youtube.com/vi/NRt5g7j0yas/maxresdefault.jpg">
 
 </a>
 
-<a href="https://youtube.com/shorts/tN50BiEvgzg"
-target="_blank"
-class="card">
-
-<img class="thumb-vertical"
-src="https://img.youtube.com/vi/tN50BiEvgzg/maxresdefault.jpg">
-
-<p>AI Edit</p>
-
-</a>
-
 </div>
 
 </div>
@@ -520,15 +532,6 @@ src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 
 </a>
 
-<a href="https://youtube.com/shorts/tN50BiEvgzg"
-target="_blank"
-class="card">
-
-<img class="thumb-vertical"
-src="https://img.youtube.com/vi/tN50BiEvgzg/maxresdefault.jpg">
-
-</a>
-
 </div>
 
 </div>
@@ -554,7 +557,7 @@ Views Generated For Clients
 <h3 class="proof-heading">BEFORE</h3>
 
 <img 
-src="Firefly_Gemini Flash_KEEP VERYTHING SAME AS IT IS AND ENHANCE THE IMAGE QUALITY 248978 (1).png"
+src="before.png"
 class="proof-image">
 
 <p>1K subscribers starting point</p>
@@ -566,7 +569,7 @@ class="proof-image">
 <h3 class="proof-heading">AFTER</h3>
 
 <img 
-src="Firefly_Gemini Flash_KEEP VERYTHING SAME AS IT IS AND ENHANCE THE IMAGE QUALITY 492039.png"
+src="after.png"
 class="proof-image">
 
 <p>137K+ subscribers with viral content strategy</p>
