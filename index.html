@@ -208,7 +208,7 @@ p{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(320px, 380px));
+  grid-template-columns:repeat(3, minmax(280px, 340px));
   justify-content:center;
   gap:35px;
 }
@@ -267,28 +267,21 @@ p{
 .proof-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:35px;
+  gap:30px;
   margin-top:60px;
 }
 
 .proof-wrapper{
   display:flex;
   flex-direction:column;
-  align-items:center;
+  gap:14px;
 }
 
-.outside-heading{
+.proof-label{
   font-size:1rem;
   letter-spacing:4px;
   color:#00ff99;
   font-weight:800;
-  margin-bottom:18px;
-}
-
-.outside-text{
-  margin-top:18px;
-  font-size:1rem;
-  color:#bdbdbd;
   text-align:center;
 }
 
@@ -299,20 +292,29 @@ p{
   overflow:hidden;
   padding:18px;
   width:100%;
+  box-sizing:border-box;
 }
 
 .proof-image{
   width:100%;
-  height:340px;
+  aspect-ratio:16/9;
   object-fit:cover;
   object-position:center top;
   border-radius:22px;
-  transform:scale(1.18);
+  display:block;
   transition:0.5s ease;
 }
 
 .proof-card:hover .proof-image{
-  transform:scale(1.22);
+  transform:scale(1.03);
+}
+
+.proof-text{
+  margin-top:18px;
+  text-align:center;
+  color:#ffffff;
+  font-weight:600;
+  font-size:1.05rem;
 }
 
 /* LONG FORM */
@@ -577,7 +579,7 @@ Views Generated For Clients
 
 <div class="proof-wrapper">
 
-<div class="outside-heading">BEFORE</div>
+<div class="proof-label">BEFORE</div>
 
 <div class="proof-card">
 
@@ -587,7 +589,7 @@ class="proof-image">
 
 </div>
 
-<div class="outside-text">
+<div class="proof-text">
 1K subscribers starting point
 </div>
 
@@ -595,7 +597,7 @@ class="proof-image">
 
 <div class="proof-wrapper">
 
-<div class="outside-heading">AFTER</div>
+<div class="proof-label">AFTER</div>
 
 <div class="proof-card">
 
@@ -605,7 +607,7 @@ class="proof-image">
 
 </div>
 
-<div class="outside-text">
+<div class="proof-text">
 137K+ subscribers with viral content strategy
 </div>
 
