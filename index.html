@@ -1,423 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video Editor Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:'Poppins',sans-serif;
-background:#050505;
-color:white;
-overflow-x:hidden;
-position:relative;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#050505;
+  color:white;
+  overflow-x:hidden;
+  position:relative;
 }
-
-/* BACKGROUND */
 
 body::before{
-content:'';
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at top right, rgba(0,255,140,0.08), transparent 30%),
-radial-gradient(circle at bottom left, rgba(0,255,140,0.05), transparent 35%);
-pointer-events:none;
-z-index:0;
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+  radial-gradient(circle at top right, rgba(0,255,140,0.08), transparent 30%),
+  radial-gradient(circle at bottom left, rgba(0,255,140,0.05), transparent 35%);
+  pointer-events:none;
+  z-index:0;
 }
-
-/* NOISE */
 
 body::after{
-content:'';
-position:fixed;
-inset:0;
-opacity:0.03;
-background-image:url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-pointer-events:none;
-z-index:0;
+  content:'';
+  position:fixed;
+  inset:0;
+  opacity:0.03;
+  background-image:url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  pointer-events:none;
+  z-index:0;
 }
-
-/* CURSOR */
 
 .cursor-glow{
-position:fixed;
-width:320px;
-height:320px;
-background:radial-gradient(circle, rgba(0,255,140,0.10), transparent 70%);
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:0;
-filter:blur(10px);
+  position:fixed;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(0,255,140,0.12), transparent 70%);
+  pointer-events:none;
+  transform:translate(-50%, -50%);
+  z-index:0;
+  filter:blur(10px);
 }
-
-/* CONTAINER */
 
 .container{
-width:90%;
-max-width:1250px;
-margin:auto;
-position:relative;
-z-index:2;
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  position:relative;
+  z-index:2;
 }
 
-/* HERO */
-
 .hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-padding-top:60px;
-padding-bottom:40px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-top:80px;
 }
 
 h1{
-font-size:5rem;
-line-height:1.05;
-font-weight:900;
-letter-spacing:-3px;
-margin:0;
-max-width:900px;
-}
-
-.highlight{
-color:#00ff99;
-text-shadow:0 0 25px rgba(0,255,140,0.4);
-}
-
-.hero-small{
-margin-top:30px;
-font-size:1.5rem;
-font-weight:700;
-color:white;
-}
-
-.button{
-display:inline-block;
-padding:16px 36px;
-background:linear-gradient(135deg,#00ff99,#00c26e);
-color:black;
-border-radius:14px;
-text-decoration:none;
-font-weight:700;
-margin-top:30px;
-width:fit-content;
-transition:0.35s ease;
-}
-
-.button:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 30px rgba(0,255,140,0.3);
-}
-
-/* SHOWREEL */
-
-.showreel{
-margin-top:70px;
-width:100%;
-}
-
-.showreel video{
-width:100%;
-border-radius:30px;
-overflow:hidden;
-box-shadow:
-0 0 60px rgba(0,255,140,0.12);
-border:1px solid rgba(255,255,255,0.06);
-background:black;
-}
-
-/* SECTION */
-
-.section{
-padding:110px 0;
-opacity:0;
-transform:translateY(50px);
-transition:1s ease;
-}
-
-.section.show{
-opacity:1;
-transform:translateY(0);
+  font-size:5rem;
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+  max-width:950px;
 }
 
 h2{
-font-size:2.6rem;
-font-weight:800;
-margin-bottom:30px;
+  font-size:2.3rem;
+  font-weight:800;
+  margin-bottom:30px;
 }
 
-/* CARD */
+p{
+  color:#bdbdbd;
+  line-height:1.7;
+}
+
+.highlight{
+  color:#00ff99;
+  text-shadow:0 0 20px rgba(0,255,153,0.35);
+}
+
+.section{
+  padding:110px 0;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
 
 .card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:28px;
-padding:15px;
-backdrop-filter:blur(14px);
-overflow:hidden;
-text-decoration:none;
-position:relative;
-transition:0.4s ease;
-display:block;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(14px);
+  padding:15px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:all 0.45s ease;
+  overflow:hidden;
+  position:relative;
+  text-decoration:none;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:
-0 0 40px rgba(0,255,140,0.12),
-0 0 120px rgba(0,255,140,0.06);
-border-color:rgba(0,255,140,0.18);
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:
+  0 0 40px rgba(0,255,140,0.12),
+  0 0 120px rgba(0,255,140,0.06);
+  border-color:rgba(0,255,140,0.18);
 }
 
-.video-thumb,
+.showreel{
+  margin-top:35px;
+  width:100%;
+}
+
+.showreel video{
+  width:100%;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 80px rgba(0,255,140,0.08);
+}
+
 .thumb-vertical{
-width:100%;
-border-radius:18px;
-transition:0.5s ease;
-object-fit:cover;
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  border-radius:18px;
+  transition:0.5s ease;
 }
 
 .video-thumb{
-aspect-ratio:16/9;
-}
-
-.thumb-vertical{
-aspect-ratio:9/16;
+  width:100%;
+  border-radius:18px;
+  transition:0.5s ease;
 }
 
 .card:hover img{
-transform:scale(1.04);
+  transform:scale(1.04);
 }
 
-/* FLEX */
-
 .flex{
-display:flex;
-gap:45px;
-align-items:center;
-margin-bottom:90px;
+  display:flex;
+  gap:50px;
+  align-items:center;
+  margin-bottom:100px;
 }
 
 .flex.reverse{
-flex-direction:row-reverse;
+  flex-direction:row-reverse;
 }
 
 .text-box{
-max-width:500px;
+  max-width:500px;
 }
 
 .text-box h3{
-font-size:3rem;
-margin-bottom:10px;
-color:#ff4d4d;
-font-weight:900;
-letter-spacing:-1px;
+  font-size:3rem;
+  font-weight:900;
+  margin-bottom:12px;
+  color:#ff4d4d;
+  text-shadow:0 0 30px rgba(255,77,77,0.4);
 }
 
-.text-box p{
-color:#bdbdbd;
-line-height:1.7;
-font-size:1.05rem;
+.text-box p:first-of-type{
+  color:#00ff99;
+  font-weight:700;
 }
-
-.green{
-color:#00ff99;
-font-weight:700;
-}
-
-/* GRID */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
 }
 
-/* HUGE COUNTER */
-
-.massive-counter{
-padding:140px 0;
-text-align:center;
+.grid p{
+  color:#00ff99;
+  font-weight:700;
 }
 
-.massive-counter h3{
-font-size:9vw;
-line-height:0.95;
-margin:0;
-font-weight:900;
-letter-spacing:-5px;
-color:white;
+.button{
+  display:inline-block;
+  padding:18px 36px;
+  background:linear-gradient(135deg,#00ff99,#00c26e);
+  color:black;
+  border-radius:14px;
+  text-decoration:none;
+  margin-top:20px;
+  font-weight:800;
+  transition:0.35s ease;
+  width:fit-content;
 }
 
-.massive-counter span{
-color:#00ff99;
+.button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,255,140,0.35);
 }
 
-.counter-sub{
-margin-top:25px;
-font-size:1.3rem;
-color:#bdbdbd;
+.stats-section{
+  padding:160px 0;
+  text-align:center;
 }
 
-/* BEFORE AFTER */
-
-.before-after{
-margin-top:90px;
+.big-counter{
+  font-size:8vw;
+  font-weight:900;
+  line-height:1;
+  color:#00ff99;
+  letter-spacing:-5px;
+  text-shadow:0 0 60px rgba(0,255,140,0.2);
 }
 
-.before-after-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-margin-top:40px;
+.stats-subtext{
+  font-size:2rem;
+  margin-top:20px;
+  color:white;
+  font-weight:700;
 }
 
-.before-card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-padding:18px;
-border-radius:28px;
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-top:60px;
 }
 
-.before-card img{
-width:100%;
-border-radius:18px;
-display:block;
+.proof-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:28px;
+  overflow:hidden;
+  padding:18px;
 }
 
-.before-card h4{
-font-size:1.5rem;
-margin-top:20px;
-margin-bottom:8px;
+.proof-card img{
+  width:100%;
+  border-radius:20px;
+  display:block;
+  margin-bottom:18px;
 }
 
-.before-card p{
-color:#bdbdbd;
+.proof-card h3{
+  font-size:2rem;
+  margin-bottom:8px;
 }
 
-/* LONG FORM */
-
-.long-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
+.longform-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
 }
 
-.long-video{
-background:rgba(255,255,255,0.04);
-padding:15px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,0.06);
+.long-card iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:none;
+  border-radius:24px;
 }
 
-.long-video iframe{
-width:100%;
-aspect-ratio:16/9;
-border:none;
-border-radius:18px;
+.long-card h3{
+  margin-top:15px;
+  font-size:1.3rem;
 }
-
-.long-video h4{
-margin-top:18px;
-font-size:1.2rem;
-}
-
-/* CONTACT */
-
-.contact-box{
-text-align:center;
-padding-bottom:100px;
-}
-
-.contact-box h2{
-margin-bottom:20px;
-}
-
-.contact-box p{
-max-width:700px;
-margin:auto;
-color:#bdbdbd;
-}
-
-/* LOADER */
 
 .loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#050505;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-transition:0.8s ease;
+  position:fixed;
+  inset:0;
+  background:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:0.8s ease;
 }
 
 .loader.hidden{
-opacity:0;
-pointer-events:none;
+  opacity:0;
+  pointer-events:none;
 }
 
 .loader span{
-font-size:1.3rem;
-font-weight:700;
-color:#00ff99;
-animation:pulse 1.5s infinite;
+  font-size:1.5rem;
+  color:#00ff99;
+  font-weight:700;
 }
 
-@keyframes pulse{
-0%{
-opacity:0.3;
-transform:scale(0.95);
-}
-50%{
-opacity:1;
-transform:scale(1);
-}
-100%{
-opacity:0.3;
-transform:scale(0.95);
-}
-}
+@media(max-width:768px){
 
-/* MOBILE */
+  h1{
+    font-size:3rem;
+  }
 
-@media(max-width:900px){
+  .flex,
+  .flex.reverse{
+    flex-direction:column;
+  }
 
-h1{
-font-size:3.2rem;
-}
+  .proof-grid{
+    grid-template-columns:1fr;
+  }
 
-.flex,
-.flex.reverse{
-flex-direction:column;
-}
-
-.massive-counter h3{
-font-size:16vw;
-}
-
-.before-after-grid{
-grid-template-columns:1fr;
-}
-
-.hero{
-padding-top:120px;
-}
+  .big-counter{
+    font-size:20vw;
+  }
 
 }
 
@@ -436,16 +338,16 @@ padding-top:120px;
 
 <!-- HERO -->
 
-<section class="hero">
+<div class="hero">
 
 <h1>
 I Create <span class="highlight">Viral Videos</span><br>
 That Drive Real Growth
 </h1>
 
-<div class="hero-small">
+<p style="font-size:1.5rem; font-weight:700; color:#ffffff;">
 100M+ Views Generated
-</div>
+</p>
 
 <a href="#short" class="button">
 View My Work
@@ -455,27 +357,28 @@ View My Work
 
 <div class="showreel">
 
-<!-- REPLACE THIS VIDEO FILE -->
-<video autoplay muted loop controls playsinline>
+<!-- REPLACE assets/showreel.mp4 WITH YOUR VIDEO PATH -->
 
-<source src="showreel.mp4" type="video/mp4">
+<video autoplay muted loop playsinline controls>
+
+<source src="assets/showreel.mp4" type="video/mp4">
 
 </video>
 
 </div>
 
-</section>
+</div>
 
 <!-- VIRAL PROOF -->
 
-<section class="section">
+<div class="section">
 
 <div class="flex">
 
 <a href="https://youtube.com/shorts/7dvHy80BDGw"
 target="_blank"
 class="card"
-style="flex:1;">
+style="flex:1">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
@@ -483,17 +386,9 @@ src="https://img.youtube.com/vi/7dvHy80BDGw/maxresdefault.jpg">
 </a>
 
 <div class="text-box">
-
 <h3>9.5M Views</h3>
-
-<p class="green">
-Minimal Editing
-</p>
-
-<p>
-Optimized for virality, retention and audience engagement.
-</p>
-
+<p><b>Minimal editing</b></p>
+<p>Optimized for virality & retention</p>
 </div>
 
 </div>
@@ -503,7 +398,7 @@ Optimized for virality, retention and audience engagement.
 <a href="https://youtube.com/shorts/B8eMhzRh2TQ"
 target="_blank"
 class="card"
-style="flex:1;">
+style="flex:1">
 
 <img class="video-thumb"
 src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
@@ -511,26 +406,18 @@ src="https://img.youtube.com/vi/B8eMhzRh2TQ/maxresdefault.jpg">
 </a>
 
 <div class="text-box">
-
 <h3>8.2M Views</h3>
-
-<p class="green">
-High Retention Editing
-</p>
-
-<p>
-Fast pacing + storytelling that keeps viewers watching till the end.
-</p>
-
+<p><b>High-retention editing</b></p>
+<p>Fast pacing + engagement</p>
 </div>
 
 </div>
 
-</section>
+</div>
 
 <!-- SHORT FORM -->
 
-<section class="section" id="short">
+<div class="section" id="short">
 
 <h2>🔥 Short Form Content</h2>
 
@@ -571,13 +458,17 @@ src="https://img.youtube.com/vi/NRt5g7j0yas/maxresdefault.jpg">
 
 </div>
 
-</section>
+</div>
 
-<!-- AI PROJECTS -->
+<!-- AI -->
 
-<section class="section">
+<div class="section">
 
 <h2>🤖 AI Video Projects</h2>
+
+<p style="margin-bottom:20px;">
+AI-enhanced storytelling & visual production
+</p>
 
 <div class="grid">
 
@@ -599,6 +490,8 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/Jg7gRkAvgrQ/maxresdefault.jpg">
 
+<p>AI Visual Storytelling</p>
+
 </a>
 
 <a href="https://youtube.com/shorts/WeGgQGp2A4I"
@@ -607,6 +500,8 @@ class="card">
 
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/WeGgQGp2A4I/maxresdefault.jpg">
+
+<p>AI Motion Design</p>
 
 </a>
 
@@ -617,140 +512,133 @@ class="card">
 <img class="thumb-vertical"
 src="https://img.youtube.com/vi/9uW9mGC42Hg/maxresdefault.jpg">
 
+<p>Creative AI Workflow</p>
+
 </a>
 
 </div>
 
-</section>
+</div>
 
-<!-- MASSIVE COUNTER -->
+<!-- HUGE STATS -->
 
-<section class="section massive-counter">
+<div class="section stats-section">
 
-<h3>
-<span id="counter">0</span>M+
-</h3>
+<div class="big-counter" id="counter">
+0M+
+</div>
 
-<div class="counter-sub">
+<div class="stats-subtext">
 Views Generated For Clients
 </div>
 
-</section>
+<!-- CLIENT PROOF -->
 
-<!-- BEFORE AFTER -->
+<div class="proof-grid">
 
-<section class="section before-after">
+<div class="proof-card">
 
-<h2>📈 Client Growth Proof</h2>
+<!-- UPLOAD YOUR BEFORE IMAGE -->
+<!-- replace before.jpg -->
 
-<div class="before-after-grid">
-
-<div class="before-card">
-
-<!-- BEFORE IMAGE -->
 <img src="before.jpg">
 
-<h4>Before Working Together</h4>
+<h3>Before Working Together</h3>
 
-<p>
-1K subscribers starting point.
-</p>
+<p>1K subscribers starting point</p>
 
 </div>
 
-<div class="before-card">
+<div class="proof-card">
 
-<!-- AFTER IMAGE -->
+<!-- UPLOAD YOUR AFTER IMAGE -->
+<!-- replace after.jpg -->
+
 <img src="after.jpg">
 
-<h4>After Growth</h4>
+<h3>After Growth</h3>
 
-<p>
-137K+ subscribers with viral content strategy.
-</p>
+<p>137K+ subscribers with viral content strategy</p>
 
 </div>
 
 </div>
 
-</section>
+</div>
 
 <!-- LONG FORM -->
 
-<section class="section">
+<div class="section">
 
 <h2>🎥 Long Form Content</h2>
 
-<div class="long-grid">
+<div class="longform-grid">
 
-<div class="long-video">
-
-<iframe
-src="https://drive.google.com/file/d/1UDO3PGDnuQdKgHcb57vKZNKIa3nUrwKw/preview"
-allow="autoplay">
-</iframe>
-
-<h4>Long Form Project #1</h4>
-
-</div>
-
-<div class="long-video">
+<div class="long-card">
 
 <iframe
-src="https://drive.google.com/file/d/1uIrm6dxQs-_LB3yUug7xT3kUb0A9hvEs/preview"
-allow="autoplay">
+src="https://www.youtube.com/embed/obxRyig2nM0"
+allowfullscreen>
 </iframe>
 
-<h4>Long Form Project #2</h4>
+<h3>Gaming Edit</h3>
 
 </div>
 
-<div class="long-video">
+<div class="long-card">
 
 <iframe
-src="https://drive.google.com/file/d/1a9LE2MwksMrmgeGrkF72u0-r7nX73MCV/preview"
-allow="autoplay">
+src="https://www.youtube.com/embed/Y9cwqJtTqnI"
+allowfullscreen>
 </iframe>
 
-<h4>Long Form Project #3</h4>
+<h3>Talking Head Edit</h3>
+
+</div>
+
+<div class="long-card">
+
+<iframe
+src="https://www.youtube.com/embed/HwEcIPwsK7o"
+allowfullscreen>
+</iframe>
+
+<h3>Documentary Style</h3>
 
 </div>
 
 </div>
 
-</section>
+</div>
 
 <!-- CONTACT -->
 
-<section class="section contact-box">
+<div class="section">
 
 <h2>📩 Work With Me</h2>
 
-<p>
-Open for freelance video editing, content strategy and viral short-form production.
-</p>
-
-<a href="https://wa.me/your-number"
-class="button">
+<a href="https://wa.me/your-number" class="button">
 Contact Me
 </a>
 
-</section>
+</div>
 
 </div>
 
 <script>
 
-/* FORCE TOP ON REFRESH */
+/* FORCE TOP */
 
 window.onbeforeunload = function () {
 window.scrollTo(0, 0);
 };
 
-window.onload = function () {
-window.scrollTo(0, 0);
+window.onload = () => {
+
+window.scrollTo(0,0);
 
 document.querySelector('.loader').classList.add('hidden');
+
 };
 
 /* CURSOR GLOW */
@@ -786,17 +674,15 @@ sec.classList.add('show');
 
 /* COUNTER */
 
+let counter = document.getElementById('counter');
+
 let started = false;
 
-function startCounter(){
+window.addEventListener('scroll', () => {
 
-const counter = document.getElementById('counter');
+const sectionTop = counter.getBoundingClientRect().top;
 
-const section = document.querySelector('.massive-counter');
-
-const top = section.getBoundingClientRect().top;
-
-if(top < window.innerHeight - 100 && !started){
+if(sectionTop < window.innerHeight && !started){
 
 started = true;
 
@@ -806,25 +692,25 @@ const target = 100;
 
 const speed = 20;
 
-const interval = setInterval(() => {
+const update = () => {
 
 count++;
 
-counter.innerText = count;
+counter.innerText = count + "M+";
 
-if(count >= target){
+if(count < target){
 
-clearInterval(interval);
-
-}
-
-}, speed);
+setTimeout(update, speed);
 
 }
 
 }
 
-window.addEventListener('scroll', startCounter);
+update();
+
+}
+
+});
 
 </script>
 
