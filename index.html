@@ -7,6 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 <style>
 
 html{
@@ -337,6 +340,66 @@ p{
   font-size:1.2rem;
 }
 
+/* CONTACT */
+
+.contact-section{
+  text-align:center;
+  padding-bottom:140px;
+}
+
+.contact-container{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.contact-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:20px 28px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  text-decoration:none;
+  color:white;
+  transition:0.4s ease;
+  backdrop-filter:blur(12px);
+}
+
+.contact-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(0,255,140,0.25);
+  box-shadow:
+  0 0 40px rgba(0,255,140,0.12),
+  0 0 120px rgba(0,255,140,0.05);
+}
+
+.contact-card i{
+  font-size:1.6rem;
+  color:#00ff99;
+}
+
+.contact-info{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.contact-title{
+  font-size:0.9rem;
+  color:#00ff99;
+  font-weight:700;
+}
+
+.contact-text{
+  font-size:1rem;
+  color:white;
+  font-weight:600;
+}
+
 /* LOADER */
 
 .loader{
@@ -664,137 +727,37 @@ allowfullscreen>
 
 <!-- CONTACT -->
 
-<div class="section">
+<div class="section contact-section">
 
-<h2>📩 Work With Me</h2>
+<h2>📩 Let's Connect</h2>
 
-<a href="https://wa.me/your-number" class="button">
-<!-- CONTACT -->
-
-<div class="section">
-
-<h2>📩 Connect With Me</h2>
-
-<div style="
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-top:40px;
-">
-
-<!-- INSTAGRAM -->
+<div class="contact-container">
 
 <a 
-href="https://instagram.com/__him1413" 
+href="https://instagram.com/__him1413"
 target="_blank"
+class="contact-card">
 
-style="
-display:flex;
-align-items:center;
-gap:18px;
-padding:22px 30px;
-min-width:320px;
-text-decoration:none;
-color:white;
-border-radius:24px;
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-backdrop-filter:blur(14px);
-transition:0.4s ease;
-">
+<i class="fa-brands fa-instagram"></i>
 
-<div style="
-width:62px;
-height:62px;
-border-radius:18px;
-background:linear-gradient(135deg,#00ff99,#00c26e);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:1.7rem;
-color:black;
-flex-shrink:0;
-">
-📷
-</div>
-
-<div>
-
-<h3 style="
-margin:0;
-font-size:1.25rem;
-font-weight:700;
-">
-Instagram
-</h3>
-
-<p style="
-margin:4px 0 0;
-color:#bdbdbd;
-font-size:0.95rem;
-">
-@__him1413
-</p>
-
+<div class="contact-info">
+<div class="contact-title">Instagram</div>
+<div class="contact-text">@__him1413</div>
 </div>
 
 </a>
-
-<!-- EMAIL -->
 
 <a 
 href="mailto:himanshusinghshah450@gmail.com"
+class="contact-card">
 
-style="
-display:flex;
-align-items:center;
-gap:18px;
-padding:22px 30px;
-min-width:320px;
-text-decoration:none;
-color:white;
-border-radius:24px;
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-backdrop-filter:blur(14px);
-transition:0.4s ease;
-">
+<i class="fa-solid fa-envelope"></i>
 
-<div style="
-width:62px;
-height:62px;
-border-radius:18px;
-background:linear-gradient(135deg,#00ff99,#00c26e);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:1.7rem;
-color:black;
-flex-shrink:0;
-">
-✉️
-</div>
-
-<div>
-
-<h3 style="
-margin:0;
-font-size:1.25rem;
-font-weight:700;
-">
-Email
-</h3>
-
-<p style="
-margin:4px 0 0;
-color:#bdbdbd;
-font-size:0.95rem;
-word-break:break-word;
-">
+<div class="contact-info">
+<div class="contact-title">Email</div>
+<div class="contact-text">
 himanshusinghshah450@gmail.com
-</p>
-
+</div>
 </div>
 
 </a>
@@ -802,3 +765,89 @@ himanshusinghshah450@gmail.com
 </div>
 
 </div>
+
+</div>
+
+<script>
+
+window.onbeforeunload = function () {
+window.scrollTo(0, 0);
+};
+
+window.onload = () => {
+
+window.scrollTo(0,0);
+
+document.querySelector('.loader').classList.add('hidden');
+
+};
+
+const glow = document.getElementById('cursorGlow');
+
+document.addEventListener('mousemove', e => {
+
+glow.style.left = e.clientX + 'px';
+glow.style.top = e.clientY + 'px';
+
+});
+
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+
+sections.forEach(sec => {
+
+const top = sec.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+sec.classList.add('show');
+
+}
+
+});
+
+});
+
+let counter = document.getElementById('counter');
+
+let started = false;
+
+window.addEventListener('scroll', () => {
+
+const sectionTop = counter.getBoundingClientRect().top;
+
+if(sectionTop < window.innerHeight && !started){
+
+started = true;
+
+let count = 0;
+
+const target = 100;
+
+const speed = 20;
+
+const update = () => {
+
+count++;
+
+counter.innerText = count + "M+";
+
+if(count < target){
+
+setTimeout(update, speed);
+
+}
+
+}
+
+update();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
